@@ -1,0 +1,91 @@
+{#
+    For guidance on how to use layouts see:
+    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+    #}
+    
+    {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+    
+    {% block header %}
+    
+    <style>
+        .ofgem-header{
+            background-color: white;
+            border-bottom: solid 5px #1d70b8
+        }
+    </style>
+    
+        <!-- {{ govukHeader({
+            rebrand: true
+        }) }}
+    
+        {{
+            govukServiceNavigation({
+               serviceName: serviceName,
+               serviceUrl: "/v01/start-pages/overview",
+               navigation: [
+               ]
+             })
+        }} -->
+    
+            <!-- Ofgem branded header -->
+            <header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
+                <div class="govuk-header__container govuk-width-container" style="border-bottom: none;">
+                  <div class="grid-container">
+                    <div class="govuk-header__logo">
+                    
+                          <img class="companyLogo" data-tenant-branding-logo="true" src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png" alt="Ofgem Logo" style="max-width: 278px;">
+                        
+                      
+                    </div>
+                    
+       
+                  </div>
+                </div>
+    
+              </header>
+    
+              {{
+                govukServiceNavigation({
+                   serviceName: serviceName,
+                   serviceUrl: "/v01/start-pages/overview",
+                   navigation: [
+                   ]
+                 })
+            }}
+    
+              
+    
+    {% endblock %}
+    
+    {% set govukRebrand = false %}
+    
+    {% block footer %}
+    
+        <!-- {{ govukFooter({
+        rebrand: true
+        }) }} -->
+          
+          <!-- Ofgem branded footer -->
+          <footer class="govuk-footer " id="footer" role="contentinfo">
+            <div class="govuk-width-container ">
+              <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <h2 class="govuk-visually-hidden">Ofgem links</h2>
+                    
+                    <ul class="govuk-footer__inline-list">
+                      
+                      <li class="govuk-footer__inline-list-item">
+                        <a class="govuk-footer__link" href="https://la-flex-d94d11db7bad.herokuapp.com/e23-09-24-footer/accessibility.html">Accessibility</a>
+                      </li>
+                      <li class="govuk-footer__inline-list-item">
+                        <a class="govuk-footer__link" href="https://la-flex-d94d11db7bad.herokuapp.com/e23-09-24-footer/cookies.html">Cookie policy</a>
+                      </li>
+          
+                    </ul>
+                    <p>© Ofgem 2025</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+    
+    {% endblock %}
