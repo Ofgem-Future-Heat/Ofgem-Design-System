@@ -1,0 +1,349 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Header" %}
+
+{% block content %}
+
+<div class="design-system-layout">
+  <!-- Sidebar Navigation -->
+  {% include "common/sidebar-nav.html" %}
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/components">Components</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">Header</li>
+      </ol>
+    </nav>
+
+    <h1 class="govuk-heading-xl">Header</h1>
+
+    <p class="govuk-body-l">
+      Use the header component for Ofgem services that are not on GOV.UK branded.
+    </p>
+
+    <div class="usage-guidelines">
+      <h2 class="govuk-heading-s">When to use this component</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>For Ofgem applications and services</li>
+        <li>To provide consistent branding across Ofgem services</li>
+        <li>Extend this header to include a service name and navigation, and user information and account details</li>
+      </ul>
+    </div>
+
+    <h2 class="govuk-heading-l">Examples</h2>
+
+    <h3 class="govuk-heading-m">Basic header</h3>
+    
+    <!-- Component Example -->
+    <div class="component-example">
+      <div class="header-example">
+        <header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
+          <div class="govuk-header__container" style="border-bottom: none;">
+            <div class="govuk-header__logo">
+              <img class="companyLogo" data-tenant-branding-logo="true"
+                src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png"
+                alt="Ofgem Logo" style="max-width: 278px;">
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <!-- Code Tabs -->
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Code
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#html-tab">
+            HTML
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#nunjucks-tab">
+            Nunjucks
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="html-tab">
+        <div class="code-example">
+          &lt;header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header"&gt;
+            &lt;div class="govuk-header__container" style="border-bottom: none;"&gt;
+                &lt;div class="govuk-header__logo"&gt;
+                  &lt;img class="companyLogo" data-tenant-branding-logo="true"
+                    src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png"
+                    alt="Ofgem Logo" style="max-width: 278px;"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/header&gt;
+        </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nunjucks-tab">
+        <div class="code-example">
+          {{ "{{ govukHeader({" | safe }}
+            classes: "ofgem-header",
+            homepageUrl: "/",
+            containerClasses: "govuk-width-container",
+            attributes: {
+              id: "header",
+              style: "border-bottom: none;"
+            },
+            logo: {
+              href: "/",
+              text: "Ofgem",
+              image: {
+                src: "https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png",
+                alt: "Ofgem Logo",
+                width: 278,
+                height: 50
+              }
+            }
+          {{ "}) }}" | safe }}
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <h2 class="govuk-heading-l">How it works</h2>
+    
+    <p class="govuk-body">The header component provides consistent branding and navigation across Ofgem services. It displays the Ofgem logo and can include additional navigation elements.</p>
+
+    <h3 class="govuk-heading-m">When to use this component</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Use on all Ofgem service pages to maintain brand consistency</li>
+      <li>When you need to provide clear service identification</li>
+      <li>For services that require Ofgem branding and logo display</li>
+      <li>When building internal or external Ofgem applications</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">When not to use this component</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Don't use on non-Ofgem branded services</li>
+      <li>Avoid using on pages that don't require official Ofgem branding</li>
+      <li>Don't use if you need a different government department's branding</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">Component attributes</h3>
+    
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Attribute</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Required</th>
+          <th scope="col" class="govuk-table__header">Description</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>classes</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">Additional CSS classes to apply to the header. Use "ofgem-header" for Ofgem branding.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>homepageUrl</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">URL for the homepage link (usually "/").</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>containerClasses</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">CSS classes for the header container. Default is "govuk-width-container".</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>attributes</code></td>
+          <td class="govuk-table__cell">object</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">HTML attributes to apply to the header element (id, style, etc.).</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo</code></td>
+          <td class="govuk-table__cell">object</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">Configuration for the logo display.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.href</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">URL for the logo link (usually "/").</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.text</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">Text to display as fallback if image fails to load.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.image</code></td>
+          <td class="govuk-table__cell">object</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">Image configuration for the logo.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.image.src</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">URL of the logo image.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.image.alt</code></td>
+          <td class="govuk-table__cell">string</td>
+          <td class="govuk-table__cell">Yes</td>
+          <td class="govuk-table__cell">Alt text for the logo image.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.image.width</code></td>
+          <td class="govuk-table__cell">number</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">Width of the logo image in pixels.</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><code>logo.image.height</code></td>
+          <td class="govuk-table__cell">number</td>
+          <td class="govuk-table__cell">No</td>
+          <td class="govuk-table__cell">Height of the logo image in pixels.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="govuk-heading-m">Customization options</h3>
+    
+    <h4 class="govuk-heading-s">Styling customization</h4>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Border removal:</strong> Use <code>style: "border-bottom: none;"</code> in attributes to remove the default bottom border</li>
+      <li><strong>Custom classes:</strong> Add additional CSS classes via the <code>classes</code> parameter</li>
+      <li><strong>Container width:</strong> Modify <code>containerClasses</code> to change the header container styling</li>
+    </ul>
+
+    <h4 class="govuk-heading-s">Logo customization</h4>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Different logos:</strong> Change the <code>logo.image.src</code> to use different Ofgem logo variants</li>
+      <li><strong>Logo sizing:</strong> Adjust <code>width</code> and <code>height</code> values to resize the logo</li>
+      <li><strong>Alt text:</strong> Customize the <code>alt</code> text for better accessibility</li>
+    </ul>
+
+    <h4 class="govuk-heading-s">Navigation customization</h4>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Homepage URL:</strong> Change <code>homepageUrl</code> to point to your service's homepage</li>
+      <li><strong>Logo link:</strong> Modify <code>logo.href</code> to change where the logo links to</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">Implementation examples</h3>
+    
+    <h4 class="govuk-heading-s">Basic implementation</h4>
+    <div class="code-example">
+      {{ "{{ govukHeader({" | safe }}
+        classes: "ofgem-header",
+        homepageUrl: "/",
+        logo: {
+          href: "/",
+          text: "Ofgem",
+          image: {
+            src: "https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png",
+            alt: "Ofgem Logo",
+            width: 278,
+            height: 50
+          }
+        }
+      {{ "}) }}" | safe }}
+    </div>
+
+    <h4 class="govuk-heading-s">With custom styling</h4>
+    <div class="code-example">
+      {{ "{{ govukHeader({" | safe }}
+        classes: "ofgem-header custom-header",
+        homepageUrl: "/",
+        attributes: {
+          id: "main-header",
+          style: "border-bottom: none; background-color: #f8f9fa;"
+        },
+        logo: {
+          href: "/",
+          text: "Ofgem",
+          image: {
+            src: "https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png",
+            alt: "Ofgem Logo",
+            width: 250,
+            height: 45
+          }
+        }
+      {{ "}) }}" | safe }}
+    </div>
+
+    <h3 class="govuk-heading-m">Accessibility considerations</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Always provide meaningful <code>alt</code> text for the logo image</li>
+      <li>Ensure the logo text fallback is descriptive and matches the image</li>
+      <li>The header has proper semantic HTML with <code>role="banner"</code></li>
+      <li>Logo links should have clear focus indicators</li>
+      <li>Maintain sufficient color contrast for any custom styling</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">Browser support</h3>
+    <p class="govuk-body">This component works in all modern browsers and follows GOV.UK Frontend browser support guidelines.</p>
+
+    <h3 class="govuk-heading-m">Header elements</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Logo</strong> - Ofgem branding and link to homepage</li>
+      <li><strong>Service name</strong> - Clear identification of the current service</li>
+      <li><strong>Navigation</strong> - Main menu items for the service</li>
+      <li><strong>User information</strong> - User name, role, and account links</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">Header types</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Basic header</strong> - Logo and service name only</li>
+      <li><strong>Navigation header</strong> - Includes main navigation menu</li>
+      <li><strong>User header</strong> - Includes user information and account links</li>
+      <li><strong>Branded header</strong> - Uses Ofgem logo and styling</li>
+    </ul>
+
+    <h3 class="govuk-heading-m">Service naming</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Use clear, descriptive service names</li>
+      <li>Keep service names short and specific</li>
+      <li>Use sentence case for service names</li>
+      <li>Avoid technical jargon in service names</li>
+    </ul>
+
+    <div class="accessibility-notes">
+      <h2 class="govuk-heading-s">Accessibility</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Use the <code>role="banner"</code> attribute for the header element</li>
+        <li>Include proper alt text for logos and images</li>
+        <li>Ensure navigation is keyboard accessible</li>
+        <li>Use descriptive link text for navigation items</li>
+        <li>Provide skip links for keyboard users</li>
+        <li>Ensure sufficient color contrast for all text elements</li>
+      </ul>
+    </div>
+
+    <h2 class="govuk-heading-l">Research</h2>
+    <p class="govuk-body">
+      This component follows Ofgem Design System patterns and has been tested with users on LA Flex and GBIS.
+      Headers are most effective when they provide clear navigation and consistent branding.
+    </p>
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body">
+        <strong>Need help?</strong> If you need help using this component,
+        <a href="/get-help" class="govuk-link">contact the design system team</a>.
+      </p>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -8,23 +8,66 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% block header %}
 
 <style>
-    .ofgem-header{
+    /* Override page width to full screen with max-width */
+    .govuk-width-container {
+        max-width: 1980px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    /* Ensure the main content area uses full width */
+    .govuk-main-wrapper {
+        max-width: 1980px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Override any other width constraints */
+    .govuk-grid-row {
+        max-width: 1980px !important;
+        width: 100% !important;
+    }
+
+    .ofgem-header {
         background-color: white;
-        border-bottom: solid 5px #1d70b8
+        border-bottom: solid 5px #1d70b8;
+        width: 100%;
+    }
+
+    /* Ensure header container uses full width */
+    .govuk-header__container {
+        max-width: 1980px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    /* Ensure footer container uses full width */
+    .govuk-footer .govuk-width-container {
+        max-width: 1980px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
     }
 </style>
 
 <!-- Ofgem branded header -->
 <header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
-    <div class="govuk-header__container govuk-width-container" style="border-bottom: none;">
+    <div class="govuk-header__container" style="border-bottom: none;">
         <div class="grid-container">
-        <div class="govuk-header__logo">
-        
-                <img class="companyLogo" data-tenant-branding-logo="true" src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png" alt="Ofgem Logo" style="max-width: 278px;">
-            
-            
-        </div>
-        
+            <div class="govuk-header__logo">
+
+                <img class="companyLogo" data-tenant-branding-logo="true"
+                    src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png"
+                    alt="Ofgem Logo" style="max-width: 278px;">
+
+
+            </div>
+
 
         </div>
     </div>
@@ -32,41 +75,41 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 </header>
 
 {{
-    govukServiceNavigation({
-        serviceName: serviceName,
-        serviceUrl: "#",
-        navigation: [
-        ]
-        })
+govukServiceNavigation({
+serviceName: serviceName,
+serviceUrl: "/",
+navigation: [
+]
+})
 }}
 
-          
+
 
 {% endblock %}
 
 {% set govukRebrand = false %}
 
 {% block footer %}
-      
+
 <!-- Ofgem branded footer -->
 <footer class="govuk-footer " id="footer" role="contentinfo">
-    <div class="govuk-width-container ">
+    <div class="govuk-width-container">
         <div class="govuk-footer__meta">
-        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-            <h2 class="govuk-visually-hidden">Ofgem links</h2>
-            
-            <ul class="govuk-footer__inline-list">
-                
-                <li class="govuk-footer__inline-list-item">
-                <a class="govuk-footer__link" href="#">Accessibility</a>
-                </li>
-                <li class="govuk-footer__inline-list-item">
-                <a class="govuk-footer__link" href="#">Cookie policy</a>
-                </li>
-    
-            </ul>
-            <p>© Ofgem 2025</p>
-        </div>
+            <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                <h2 class="govuk-visually-hidden">Ofgem links</h2>
+
+                <ul class="govuk-footer__inline-list">
+
+                    <li class="govuk-footer__inline-list-item">
+                        <a class="govuk-footer__link" href="#">Accessibility</a>
+                    </li>
+                    <li class="govuk-footer__inline-list-item">
+                        <a class="govuk-footer__link" href="#">Cookie policy</a>
+                    </li>
+
+                </ul>
+                <p>© Ofgem 2025</p>
+            </div>
         </div>
     </div>
 </footer>
