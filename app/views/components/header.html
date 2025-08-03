@@ -41,15 +41,7 @@
     <!-- Component Example -->
     <div class="component-example">
       <div class="header-example">
-        <header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
-          <div class="govuk-header__container" style="border-bottom: none;">
-            <div class="govuk-header__logo">
-              <img class="companyLogo" data-tenant-branding-logo="true"
-                src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png"
-                alt="Ofgem Logo" style="max-width: 278px;">
-            </div>
-          </div>
-        </header>
+        {% include "common/header.html" %}
       </div>
     </div>
 
@@ -245,42 +237,12 @@
     
     <h4 class="govuk-heading-s">Basic implementation</h4>
     <div class="code-example">
-      {{ "{{ govukHeader({" | safe }}
-        classes: "ofgem-header",
-        homepageUrl: "/",
-        logo: {
-          href: "/",
-          text: "Ofgem",
-          image: {
-            src: "https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png",
-            alt: "Ofgem Logo",
-            width: 278,
-            height: 50
-          }
-        }
-      {{ "}) }}" | safe }}
+      {% include "common/nunjucks/header-code-example.html" %}
     </div>
 
     <h4 class="govuk-heading-s">With custom styling</h4>
     <div class="code-example">
-      {{ "{{ govukHeader({" | safe }}
-        classes: "ofgem-header custom-header",
-        homepageUrl: "/",
-        attributes: {
-          id: "main-header",
-          style: "border-bottom: none; background-color: #f8f9fa;"
-        },
-        logo: {
-          href: "/",
-          text: "Ofgem",
-          image: {
-            src: "https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png",
-            alt: "Ofgem Logo",
-            width: 250,
-            height: 45
-          }
-        }
-      {{ "}) }}" | safe }}
+      {% include "common/nunjucks/header-custom-styling-example.html" %}
     </div>
 
     <h3 class="govuk-heading-m">Accessibility considerations</h3>

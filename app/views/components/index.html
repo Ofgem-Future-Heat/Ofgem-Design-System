@@ -18,20 +18,10 @@
     </p>
 
     <div class="components-grid">
-      <!-- Left Column -->
       <div class="component-card">
         <h3 class="govuk-heading-m"><a href="/components/header">Ofgem header</a></h3>
         <div class="component-preview" style="min-height: 120px;">
-          <header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
-            <div class="govuk-header__container" style="border-bottom: none;">
-              <div class="govuk-header__logo">
-                <img class="companyLogo" data-tenant-branding-logo="true"
-                  src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png"
-                  alt="Ofgem Logo" style="max-width: 278px;">
-              </div>
-
-            </div>
-          </header>
+          {% include "common/header.html" %}
         </div>
         <p class="component-description">
           Use the header component for any service or system not on GOV.UK like internal staff.
@@ -41,15 +31,10 @@
         <a href="/components/header" class="component-link">View the 'Header' documentation</a>
       </div>
 
-
-      <!-- Right Column -->
-
       <div class="component-card">
         <h3 class="govuk-heading-m"><a href="/components/profile"> BUS profile </a></h3>
         <div class="component-preview" style="min-height: 120px;">
-          <div class="govuk-form-group">
-            <span class="govuk-body">COMING SOON</span>
-          </div>
+          {% include "common/profile.html" %} 
         </div>
         <p class="component-description">
           Use the entity component in Boiler Upgrade Scheme internal portal to display Application details and Installer
@@ -57,8 +42,6 @@
         </p>
         <a href="/components/profile" class="component-link">View the 'BUS profile' documentation</a>
       </div>
-
-      <!-- end of right column -->
     </div>
   </main>
 </div>

@@ -20,6 +20,8 @@
     </nav>
 
     <h1 class="govuk-heading-xl">BUS profile</h1>
+
+ 
     
     <p class="govuk-body-l">
       Use the profile snapshot component to display application details and installer account details as a snapshot.
@@ -33,6 +35,44 @@
         <li>Extend this header to include a service name and navigation, and user information and account details</li>
       </ul>
     </div>
+
+    <h2 class="govuk-heading-l">Examples</h2>
+
+    <h3 class="govuk-heading-m">GID profile</h3>
+    <div class="component-example">
+      {% include "common/profile.html" %}
+    </div>
+
+
+     <!-- Code Tabs -->
+     <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Code
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#html-tab">
+            HTML
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#nunjucks-tab">
+            Nunjucks
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="html-tab">
+        <div class="code-example">
+        Work in progress
+        </div>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="nunjucks-tab">
+        <div class="code-example">
+          Work in progress
+        </div>
+      </div>
+    </div>
+
 
     <h2 class="govuk-heading-l">How it works</h2>
     

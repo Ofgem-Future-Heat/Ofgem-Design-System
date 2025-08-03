@@ -9,6 +9,12 @@
 .design-system-layout {
   display: flex;
   min-height: calc(100vh - 200px);
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .sidebar {
@@ -17,12 +23,25 @@
   border-right: 1px solid #dee2e6;
   padding: 2rem 0;
   flex-shrink: 0;
+  box-sizing: border-box;
+  
+  @media (max-width: 1024px) {
+    width: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    width: 200px;
+  }
 }
 
 .main-content {
   flex: 1;
-  padding: 2rem;
+  padding: 1rem;
   background-color: white;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .sidebar-nav {
@@ -107,9 +126,11 @@
 
 .components-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .component-card {
@@ -117,6 +138,9 @@
   border-radius: 4px;
   padding: 1.5rem;
   background-color: white;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 .component-card h3 {
@@ -151,49 +175,6 @@
   text-decoration: underline;
 }
 
-// Button examples
-.button-examples {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-// Badge examples
-.badge-examples {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-// Filter panel styles
-.filter-panel {
-  border: 1px solid #b1b4b6;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 4px;
-}
-
-.selected-filters {
-  margin-bottom: 1rem;
-}
-
-.filter-tag {
-  display: inline-block;
-  background-color: #f3f2f1;
-  border: 1px solid #b1b4b6;
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-  margin: 0.25rem;
-  font-size: 0.875rem;
-}
-
-.filter-tag .remove {
-  margin-left: 0.5rem;
-  color: #d4351c;
-  text-decoration: none;
-}
 
 // Header example styles
 .header-example {
@@ -211,45 +192,4 @@
 .govuk-header__link--service-name:hover {
   color: #000000 !important;
   text-decoration: underline;
-}
-
-// Code tabs styling
-.govuk-tabs {
-  margin: 2rem 0;
-}
-
-.govuk-tabs__title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.govuk-tabs__list {
-  border-bottom: 1px solid #b1b4b6;
-  margin-bottom: 0;
-}
-
-.govuk-tabs__tab {
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  color: #0b0c0c;
-  border-bottom: 3px solid transparent;
-}
-
-.govuk-tabs__tab:hover {
-  text-decoration: underline;
-}
-
-.govuk-tabs__list-item--selected .govuk-tabs__tab {
-  border-bottom-color: #1d70b8;
-  color: #1d70b8;
-  font-weight: bold;
-}
-
-.govuk-tabs__panel {
-  padding: 1rem 0;
-}
-
-.govuk-tabs__panel--hidden {
-  display: none;
 }
