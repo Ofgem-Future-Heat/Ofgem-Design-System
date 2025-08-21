@@ -1,0 +1,227 @@
+$module: 'filter';
+@import './bem';
+@import './misc';
+$filtersPaddingY: 10px;
+$filtersPaddingX: 6px;
+$filterPaddingY: 4px;
+$filterPaddingX: 6px;
+// $filterPadding: 5px;
+$filters-mid-grey: #D9D9D9;
+$filters-light-grey: #F3F2F1;
+
+/*
+:::DOM hierarchy:::
+filters
+  filters__heading
+  filters__header
+    filters__header-top
+       filters__header-left
+       filters__header-right
+    filters__live #liveFiltersWrapper
+  filters__button-wrap
+  filter
+
+      filter__title
+      filter__list
+        filter__item
+
+*/
+
+%filter {
+  // @include box-sizing(border-box);
+/*  position: relative;
+  display:block;
+  float:none;
+  padding:10px 0;
+  @include govuk-font($size: 16, $weight: normal);*/
+
+  /*@include desktop {
+    display:inline-block;
+    float:left;
+    padding:10px 8px 10px 0;
+  }*/
+}
+
+
+
+.#{$module}s {
+  // div.filters wrapper
+  // @include box-sizing(border-box);
+  position: relative;
+  display:block;
+  border:1px solid govuk-colour("light-grey");
+
+  &__heading {
+    background-color: $filters-mid-grey;
+    padding:$filtersPaddingY $filtersPaddingX;
+    margin-bottom:0;
+  }
+
+  &__live {
+    @include govuk-font($size: 16, $weight: normal);
+  }
+
+  &__header {
+    background-color: $filters-light-grey;
+    padding:$filtersPaddingY $filtersPaddingX;
+    border-bottom: 1px solid $filters-mid-grey;
+
+    &-left {
+      position: relative;
+      float:left;
+      width:50%;
+    }
+
+    &-right {
+      position: relative;
+      float:right;
+      width:50%;
+      text-align: right;
+    }
+  }
+  &__button-wrap {
+    padding:$filtersPaddingY $filtersPaddingX;
+    border-bottom: 1px solid govuk-colour("light-grey");
+    margin-bottom: 10px;
+
+    .govuk-button {
+      margin-bottom:0;
+    }
+  }
+
+  &__hint {
+    display: block;
+    @include govuk-font($size: 16, $weight: normal);
+    color: govuk-colour("dark-grey");
+    padding: $filterPaddingY/2 $filterPaddingX;
+
+    &.govuk-hint {
+      padding-left:0;
+    }
+  }
+}
+
+.#{$module} {
+  // div.filter
+  border-bottom: 1px solid govuk-colour("light-grey");
+  padding: 0 0 10px 0;
+  margin: 0 0 10px;
+  @include govuk-font($size: 16, $weight: normal);
+
+  // @include e('title') {
+  &__title {
+    @include govuk-font($size: 19, $weight: bold);
+    position: relative;
+    border: 0;
+    width: 100%;
+    display: inline-block;
+    background-color: govuk-colour("white");
+    padding: $filterPaddingY $filterPaddingX;
+    text-align: left;
+    margin-bottom:0;
+
+    &:after {
+      position: absolute;
+      right:6px;
+      top:10px;
+      content:"";
+      display: inline-block;
+      border-right: 1px solid govuk-colour("black");
+      border-bottom: 1px solid govuk-colour("black");
+      width: 10px; height: 10px;
+      transform: rotate(45deg);
+    }
+
+    &:focus {
+      border-color: #ffdd00;
+      outline: 3px solid transparent;
+      box-shadow: inset 0 0 0 4px #ffdd00;
+    }
+
+    &:hover {
+      box-shadow: 0 2px 0 #0b0c0c;
+      cursor: pointer;
+    }
+
+    &--closed {
+      &:after {
+        right:6px;
+        top:10px;
+        transform: rotate(-45deg)!important;
+      }
+    }
+  }
+
+  &__search {
+    padding: $filterPaddingY $filterPaddingX;
+
+    &.govuk-form-group {
+      margin-bottom: 0;
+    }
+  }
+
+  &__search-label {
+
+  }
+
+  &__list {
+    padding:0;
+    margin:0;
+    list-style-type: none;
+  }
+
+  &__set {
+
+    .govuk-form-group {
+      padding: $filterPaddingY $filterPaddingX;
+      // padding-left: 0;
+      margin-bottom:10px;
+
+      .govuk-form-group {
+        padding:0;
+      }
+    }
+
+    .govuk-date-input__label {
+      @include govuk-font($size: 16, $weight: normal);
+    }
+
+    .govuk-date-input__item {
+      margin-right: 10px;
+      padding-left: 0;
+    }
+
+
+    .govuk-date-input__input {
+      padding: 2px;
+      height: 2rem;
+      @include govuk-font-size($size: 16, $important: true);
+    }
+  }
+
+  &__item {
+    // border-bottom:1px solid govuk-colour("light-grey");
+    padding: $filterPaddingY $filterPaddingX;
+    clear: both;
+    margin-bottom: 0!important;
+
+    &--small {
+      padding: 0 4px 0 6px;
+    }
+  }
+
+  &--last {
+    margin-bottom:0;
+    //background-color: lime;
+  }
+
+  // Radio border fix - too big!
+  .govuk-radios--small .govuk-radios__item:hover .govuk-radios__input:not(:disabled) + .govuk-radios__label::before {
+    box-shadow: 0 0 0 4px #b1b4b6!important;
+  }
+
+  &__scroll {
+    overflow: auto;
+    // max-height: 400px;
+  }
+}

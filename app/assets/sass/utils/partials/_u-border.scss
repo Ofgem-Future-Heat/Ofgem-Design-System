@@ -1,0 +1,23 @@
+// $border-class-values
+
+// scss-lint:disable ImportantRule
+
+@each $value in $border-class-values {
+
+  .u-brd-l#{$value} {
+    border-left: #{$value}px !important;
+  }
+
+  .u-brd-r#{$value} {
+    border-right:#{$value}px !important;
+  }
+
+  .u-brd-t#{$value} {
+    border-top:#{$value}px !important;
+  }
+
+  .u-brd-b#{$value} {
+    border-bottom:#{$value}px !important;
+  }
+}
+

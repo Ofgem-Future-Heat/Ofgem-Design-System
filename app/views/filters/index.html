@@ -1,0 +1,679 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Filters" %}
+{% set counties = [
+    { text: 'Aberdeenshire'},
+    { text: 'Avon'},
+    { text: 'Bedfordshire'},
+    { text: 'Berkshire'},
+    { text: 'Bristol'},
+    { text: 'Cambridgeshire'},
+    { text: 'Cheshire'},
+    { text: 'Cornwall'},
+    { text: 'Derbyshire'},
+    { text: 'Devon'},
+    { text: 'Essex'},
+    { text: 'Hampshire'},
+    { text: 'Herefordshire'},
+    { text: 'Isle of Wight'},
+    { text: 'Lancashire'},
+    { text: 'Merseyside'},
+    { text: 'Middlesex'},
+    { text: 'Northumberland'},
+    { text: 'Nottinghamshire'},
+    { text: 'Rutland'},
+    { text: 'Shropshire'},
+    { text: 'Somerset'},
+    { text: 'Tyne and Wear'},
+    { text: 'Warrington'},
+    { text: 'Westmorland and Furness'},
+    { text: 'West Yorkshire'},
+    { text: 'Wiltshire'},
+    { text: 'Worcestershire'},
+    { text: 'York'}
+] %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+        <h1 class="govuk-heading-xl">
+            Filters demo
+        </h1>
+    </div>
+</div>
+
+<form method="post" action="/filters" name="manageFilters">
+<div class="govuk-grid-row">
+<!--    <div class="govuk-grid-column-one-quarter">-->
+    <div class="govuk-grid-column-one-third">
+
+        <div class="filters">
+            <h2 class="govuk-heading-s filters__heading">
+                Filter
+            </h2>
+
+            <div class="filters__header">
+                <div class="filters__header-top govuk-clearfix">
+                    <div class="filters__header-left">
+                        <h3 class="govuk-heading-s filters__header-selected">Selected filters</h3>
+                    </div>
+                    <div class="filters__header-right">
+                        <a href="#" class="govuk-link govuk-!-font-size-16 govuk-link--no-visited-state">Clear filters</a>
+                    </div>
+                </div>
+                <div class="filters__live" id="liveFiltersWrapper">
+                    <span class="govuk-!-font-size-16">No filters selected</span>
+                </div>
+            </div>
+            <div class="filters__button-wrap">
+                <button class="govuk-button" name="applyFilters" id="applyFilters1">Apply filters</button>
+            </div>
+
+            <div class="filter">
+                <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleSearchItem', 'js-hidden')" aria-expanded="true">Search for an item</button>
+                <div class="govuk-form-group filter__search" id="toggleSearchItem">
+                    <label class="govuk-label govuk-visually-hidden" for="itemSearch">
+                        Search for item
+                    </label>
+                    <div class="govuk-hint filters__hint">
+                        Enter search term
+                    </div>
+                    <input class="govuk-input" id="itemSearch" name="itemSearch" type="text">
+                </div>
+            </div>
+
+            <div class="filter">
+
+                <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleStatusList', 'js-hidden')" aria-expanded="true">Status</button>
+
+                <span class="filter__toggle"></span>
+                <ul class="filter__list u-clearfix" id="toggleStatusList">
+                    <li>
+                        <span class="filters__hint">Select all that apply</span>
+                    </li>
+                    <li class="filter__item filter__item--small">
+                        <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                            <input class="govuk-checkboxes__input" id="filterDraft" type="checkbox" name="filterDraft" value="draft">
+                            <label for="filterDraft" class="govuk-checkboxes__label u-display-ib">Draft</label>
+                        </div>
+                    </li>
+                    <li class="filter__item filter__item--small">
+                        <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                            <input class="govuk-checkboxes__input" id="filterReady" type="checkbox" name="filterReady" value="ready">
+                            <label for="filterReady" class="govuk-checkboxes__label u-display-ib">Ready to open</label>
+                        </div>
+                    </li>
+                    <li class="filter__item filter__item--small">
+                        <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                            <input class="govuk-checkboxes__input" id="filterOpen" type="checkbox" name="filterOpen" value="open">
+                            <label for="filterOpen" class="govuk-checkboxes__label u-display-ib">Open</label>
+                        </div>
+                    </li>
+                    <li class="filter__item filter__item--small">
+                        <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                            <input class="govuk-checkboxes__input" id="filterPrePanel" type="checkbox" name="prePanel" value="prePanel">
+                            <label for="filterPrePanel" class="govuk-checkboxes__label u-display-ib">Pre-panel</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="filter filter__fixed" >
+                <!-- filter__title--closed js-hidden -->
+                <button class="filter__title " type="button" onclick="toggleVisibility(this, 'toggleCountiesList', 'js-hidden')" aria-expanded="true">County</button>
+
+                <span class="filter__toggle"></span>
+                <div class="filter__scroll" id="toggleCountiesList" data-height="400">
+
+                    <div class="govuk-form-group filter__search">
+                        <label class="govuk-label govuk-visually-hidden" for="countiesFilterSearch">
+                            Filter items in list
+                        </label>
+                        <div class="govuk-hint filters__hint">
+                            Start typing to find items
+                        </div>
+                        <input class="govuk-input" id="countiesFilterSearch" name="countiesFilterSearch" type="text" onkeyup="filterCountiesList()">
+                    </div>
+
+                    <ul class="filter__list  u-clearfix " id="countiesList">
+                        {% for item in counties %}
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCounties_{{loop.index}}" type="checkbox" name="filterCounties_{{loop.index}}" value="{{item.text}}">
+                                    <label for="filterCounties_{{loop.index}}" class="govuk-checkboxes__label u-display-ib">{{item.text}}</label>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filter ">
+                <!-- filter__title--closed js-hidden -->
+                <button class="filter__title " type="button" onclick="toggleVisibility(this, 'toggleRadiosList', 'js-hidden')" aria-expanded="true">Radios</button>
+
+                <span class="filter__toggle"></span>
+                <ul class="filter__list filter__scroll u-clearfix govuk-radios govuk-radios--small" id="toggleRadiosList" data-height="">
+                    <li class="filter__item filter__item--small govuk-clearfix">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input " id="filterRadio_1" type="radio" name="filterRadiosArray_1" value="Radio 1">
+                            <label for="filterRadio_1" class="govuk-label govuk-radios__label u-display-ib">Option 1</label>
+                        </div>
+                    </li>
+                    <li class="filter__item filter__item--small govuk-clearfix">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input " id="filterRadio_2" type="radio" name="filterRadiosArray_1" value="Radio 2">
+                            <label for="filterRadio_2" class="govuk-label govuk-radios__label u-display-ib">Option 2</label>
+                        </div>
+                    </li>
+                    <li class="filter__item filter__item--small govuk-clearfix">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input " id="filterRadio_3" type="radio" name="filterRadiosArray_1" value="Radio 3">
+                            <label for="filterRadio_3" class="govuk-label govuk-radios__label u-display-ib">Option 3</label>
+                        </div>
+                    </li>
+                    <li class="filter__item filter__item--small govuk-clearfix">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input " id="filterRadio_4" type="radio" name="filterRadiosArray_1" value="Radio 4">
+                            <label for="filterRadio_4" class="govuk-label govuk-radios__label u-display-ib">Option 4</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter filter--last ">
+                <!-- filter__title--closed js-hidden -->
+                <button class="filter__title " type="button" onclick="toggleVisibility(this, 'toggleDates', 'js-hidden')" aria-expanded="true">Filter by date range</button>
+
+                <span class="filter__toggle"></span>
+                <div class="filter__set" id="toggleDates">
+                    <div class="filters__hint">Enter your preferred search range</div>
+                    <div class="govuk-form-group" >
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="start-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s ">From</legend>
+                            <div class="govuk-date-input" id="start">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="start-day">
+                                            Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-day" name="start-day" type="text" autocomplete="end-day" inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="start-month">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-month" name="start-month" type="text" autocomplete="end-month" inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="start-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-year" name="start-year" type="text" autocomplete="end-year" inputmode="numeric">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="govuk-form-group" >
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="end-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s ">To</legend>
+
+                            <div class="govuk-date-input" id="end">
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="end-day">
+                                            Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="end-day" name="end-day" type="text" autocomplete="start-day" inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="end-month">
+                                            Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="end-month" name="end-month" type="text" autocomplete="start-month" inputmode="numeric">
+                                    </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="end-year">
+                                            Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="end-year" name="end-year" type="text" autocomplete="start-year" inputmode="numeric">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="filters__button-wrap">
+                <button class="govuk-button" name="applyFilters" id="applyFilters2">Apply filters</button>
+            </div>
+        </div>
+
+
+    </div>
+<!--    <div class="govuk-grid-column-three-quarters">-->
+    <div class="govuk-grid-column-two-thirds">
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th class="govuk-table__header">Installation<br>postcode</th>
+                    <th class="govuk-table__header govuk-table__header--numeric">Application<br>ID</th>
+                    <th class="govuk-table__header">Status</th>
+                    <th class="govuk-table__header">Consent</th>
+                    <th class="govuk-table__header">Application<br>date</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr><tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr><tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+            <tr class="govuk-table__">
+                <td class="govuk-table__cell ">BS8 1LQ</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">12987946539</td>
+                <td class="govuk-table__cell ">[status]</td>
+                <td class="govuk-table__cell ">[consent]</td>
+                <td class="govuk-table__cell ">1 Aug 25</td>
+            </tr>
+
+            </tbody>
+
+
+        </table>
+
+
+
+
+    </div>
+</div>
+</form>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% block pageScripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js" integrity="sha512-BrvVYNhKh6yST24E5DY/LopLO5d+8KYmIXyrpBIJ2PK+CyyJw/cLSG/BfJomWLC1IblNrmiJWGlrGueKLd/Ekw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            //alert('test');
+            //$('body').css('background-color', 'lime');
+        </script>
+<script>
+    function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+            toggleSwitch.classList.remove('filter__title--closed');
+            toggleItem.classList.remove(className);
+            toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+            toggleSwitch.classList.add('filter__title--closed');
+            toggleItem.classList.add(className);
+            toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+    }
+    function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+    }
+</script>
+
+<script>
+    function filterCountiesList() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('countiesFilterSearch');
+        filter = input.value.toLowerCase();
+        ul = document.getElementById('countiesList');
+        li = ul.getElementsByTagName('li');
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName('label')[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                li[i].style.display = '';
+            } else {
+                li[i].style.display = 'none';
+            }
+        }
+    }
+</script>
+
+<script>
+    // assign desired max-height to scrollable divs from data attr
+    document.addEventListener("DOMContentLoaded", function() {
+        let scrollableDivs = document.getElementsByClassName('filter__scroll');
+        for(let i = 0; i < scrollableDivs.length; i++) {
+            let thisMaxHeight = scrollableDivs[i].getAttribute('data-height');
+            scrollableDivs[i].style.maxHeight = thisMaxHeight + 'px';
+        }
+    });
+</script>
+<script>
+    // write filter state to cookie and initiate on load
+    n
+
+</script>
+
+    {% endblock %}
+{% endblock %}
+
+
