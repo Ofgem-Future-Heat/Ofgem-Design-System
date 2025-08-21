@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Filter" %}
+
+{% block content %}
+
+<div class="design-system-layout">
+  <!-- Sidebar Navigation -->
+  {% include "common/sidebar-nav.html" %}
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="/components">Components</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item" aria-current="page">BUS profile</li>
+      </ol>
+    </nav>
+
+    <h1 class="govuk-heading-xl">BUS profile</h1>
+
+ 
+    
+    <p class="govuk-body-l">
+      Use the profile snapshot component to display application details and installer account details as a snapshot.
+    </p>
+
+    <div class="usage-guidelines">
+      <h2 class="govuk-heading-s">When to use this component</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>For internal staff applications and services</li>
+        <li>To provide consistent branding across Ofgem services</li>
+        <li>Extend this header to include a service name and navigation, and user information and account details</li>
+      </ul>
+    </div>
+
+    <h2 class="govuk-heading-l">Examples</h2>
+
+    <h3 class="govuk-heading-m">GID profile</h3>
+    <div class="component-example">
+      {% include "common/profile.html" %}
+    </div>
+
+
+    <h3 class="govuk-heading-m">HTML code snippet</h3>
+
+    <div class="code-example">
+        <code> include "common/profile.html"</code>
+    </div>
+
+
+    <h2 class="govuk-heading-l">How it works</h2>
+    
+    <p class="govuk-body">The profile snapshot component displays application details and installer account details as a snapshot.</p>
+
+    <h3 class="govuk-heading-m">When to use this component</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>For internal applications and services</li>
+      <li>To provide snapshot of application details and installer account details</li>
+      <li>Extend this to include or exclude certain details as needed</li>
+    </ul>
+
+
+    <h3 class="govuk-heading-m">When not to use this component</h3>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Don't use on non-internal applications and services</li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Research</h2>
+    <p class="govuk-body">
+      This component follows MoJ Design System patterns and has been tested with users on LA Flex and GBIS.
+      Headers are most effective when they provide clear navigation and consistent branding.
+    </p>
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body">
+        <strong>Need help?</strong> If you need help using this component, 
+        <a href="/get-help" class="govuk-link">contact the design system team</a>.
+      </p>
+    </div>
+  </main>
+</div>
+
+{% endblock %} 

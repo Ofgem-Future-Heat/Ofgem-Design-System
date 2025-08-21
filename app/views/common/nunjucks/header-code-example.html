@@ -1,0 +1,19 @@
+{{ "{{ govukHeader({" | safe }}
+  classes: "ofgem-header",
+  homepageUrl: "/",
+  containerClasses: "govuk-width-container",
+  attributes: {
+    id: "header",
+    style: "border-bottom: none;"
+  },
+  logo: {
+    href: "/",
+    text: "Ofgem",
+    image: {
+      src: "https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png",
+      alt: "Ofgem Logo",
+      width: 278,
+      height: 50
+    }
+  }
+{{ "}) }}" | safe }} 

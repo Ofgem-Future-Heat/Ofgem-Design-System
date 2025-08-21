@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Filter" %}
+
+{% block content %}
+
+<div class="design-system-layout">
+  <!-- Sidebar Navigation -->
+  {% include "common/sidebar-nav.html" %}
+
+  <!-- Main Content -->
+  <main class="main-content">
+ 
+
+    <h1 class="govuk-heading-xl">BUS profile</h1>
+
+    <p class="govuk-body-l">
+      Use the profile snapshot component to display application details and installer account details as a snapshot.
+    </p>
+
+    
+    <br />
+    <h2 class="govuk-heading-m">Example 1: Application details</h2>
+    <div class="component-example">
+    <!--COMPONENT EXAMPLE 1 -->
+    {% include "common/profile.html" %}
+    <!-- end of component example 1 -->
+     </div>
+
+   
+    
+  </main>
+</div>
+
+{% endblock %}

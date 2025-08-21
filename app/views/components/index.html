@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Components" %}
+
+
+{% block content %}
+<style>
+  .component-card {
+    width: 100% !important;
+  }
+</style>
+
+<div class="design-system-layout">
+  <!-- Sidebar Navigation -->
+  {% include "common/sidebar-nav.html" %}
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1 class="govuk-heading-xl">Components</h1>
+
+    <p class="govuk-body-l">
+      Components are reusable parts of a user interface that have been made to support a variety of applications.
+      Individual components can be used in multiple different pages, patterns and context.
+    </p>
+
+    <!-- <div class="components-grid"> -->
+      <div class="component-card">
+        <h3 class="govuk-heading-m"><a href="/components/header">Ofgem header</a></h3>
+        <div class="component-preview" style="min-height: 120px;">
+          {% include "common/header.html" %}
+        </div>
+        <p class="component-description">
+          Use the header component for any service or system not on GOV.UK like internal staff.
+          <br />
+          <strong>Note:</strong> This component is customisable to meet the needs of the Ofgem service.
+        </p>
+        <a href="/components/header" class="component-link">View the 'Header' documentation</a>
+      </div>
+
+      <br>
+
+      <div class="component-card">
+        <h3 class="govuk-heading-m"><a href="/components/profile"> BUS profile </a></h3>
+        <div class="component-preview" style="min-height: 120px;">
+          {% include "common/profile.html" %} 
+        </div>
+        <p class="component-description">
+          Use the entity component in Boiler Upgrade Scheme internal portal to display Application details and Installer
+          account details as a snapshot.
+        </p>
+        <a href="/components/profile" class="component-link">View the 'BUS profile' documentation</a>
+      </div>
+
+    <!-- </div> -->
+  </main>
+</div>
+
+{% endblock %}

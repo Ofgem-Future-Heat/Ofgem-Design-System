@@ -1,0 +1,30 @@
+<!-- Reusable Sidebar Navigation Component -->
+<nav class="sidebar">
+  <ul class="sidebar-nav">
+    <li class="sidebar-section">
+      <h3 class="govuk-heading-s">Building blocks</h3>
+      <ul class="sidebar-nav">
+        <li><a href="/components" class="{{ 'active' if activePage == 'components' else '' }}">Components</a></li>
+        <li><a href="#" class="{{ 'active' if activePage == 'patterns' else '' }}">Patterns</a></li>
+      </ul>
+    </li>
+    
+    <li class="sidebar-section govuk-!-margin-top-6">
+      <h3 class="govuk-heading-s">Guidance</h3>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="{{ 'active' if activePage == 'content-style-guide' else '' }}">Content style guide</a></li>
+        <li><a href="#" class="{{ 'active' if activePage == 'accessibility' else '' }}">Accessibility</a></li>
+        <li><a href="#" class="{{ 'active' if activePage == 'prototyping' else '' }}">Prototyping</a></li>
+      </ul>
+    </li>
+    
+    <li class="sidebar-section govuk-!-margin-top-6">
+      <h3 class="govuk-heading-s">About</h3>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="{{ 'active' if activePage == 'benefits' else '' }}">Ofgem Design System</a></li>
+        <li><a href="#" class="{{ 'active' if activePage == 'get-involved' else '' }}">Get involved</a></li>
+        <li><a href="#" class="{{ 'active' if activePage == 'get-help' else '' }}">Get help</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav> 
