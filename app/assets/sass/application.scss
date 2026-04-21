@@ -13,10 +13,11 @@
 .design-system-layout {
   display: flex;
   min-height: calc(100vh - 200px);
-  margin: 0 auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   padding-left: 0;
   padding-right: 0;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -40,7 +41,8 @@
 
 .main-content {
   flex: 1;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  padding-right: calc(max(2rem, (100vw - 1440px) / 2 + 30px));
   background-color: white;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -187,6 +189,177 @@
   overflow: hidden;
 }
 
+// ---------------------------------------------------------------------------
+// Landing page hero
+// ---------------------------------------------------------------------------
+html,
+body {
+  // prevent horizontal scrollbar from the full-bleed hero
+  overflow-x: hidden;
+}
+
+.ofgem-hero {
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  min-height: calc(100vh - 260px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(#c9d3df 1px, transparent 1.25px),
+    radial-gradient(#c9d3df 1px, transparent 1.25px);
+  background-size: 22px 22px, 22px 22px;
+  background-position: 0 0, 11px 11px;
+  box-sizing: border-box;
+}
+
+.ofgem-hero__inner {
+  position: relative;
+  max-width: 630px;
+  width: 100%;
+  text-align: center;
+  padding: 48px 16px;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ofgem-hero__title {
+  margin: 0 0 24px 0;
+  line-height: 1.0625; // matches GOV.UK xl heading
+  font-weight: 700;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+.ofgem-hero__title-primary,
+.ofgem-hero__title-secondary {
+  display: block;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 48px; // GOV.UK heading-xl desktop size
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.ofgem-hero__title-primary {
+  color: #002439; // Ofgem dark navy
+}
+
+.ofgem-hero__title-secondary {
+  color: #F27B20; // Ofgem accent orange
+}
+
+.ofgem-hero__description {
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 19px; // GOV.UK body
+  line-height: 1.3157894737; // GOV.UK body desktop line-height
+  color: #0b0c0c; // govuk-text-colour
+  margin: 0 0 16px 0;
+}
+
+.ofgem-hero__cta {
+  margin: 28px 0 16px 0;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+// Ofgem pill-style CTA button
+.ofgem-pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  min-width: 340px;
+  padding: 14px 12px 14px 28px;
+  background-color: #002439;
+  color: #ffffff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  box-shadow: none;
+  transition: background-color 0.15s ease-in-out;
+
+  &:link,
+  &:visited {
+    color: #ffffff;
+  }
+
+  &:hover {
+    background-color: #00435B;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    background-color: #ffdd00;
+    box-shadow: 0 0 0 3px #0b0c0c, 0 4px 0 0 #0b0c0c;
+
+    .ofgem-pill-button__icon {
+      background-color: #0b0c0c;
+      color: #ffdd00;
+    }
+  }
+
+  &:active {
+    background-color: #00121d;
+    color: #ffffff;
+
+    .ofgem-pill-button__icon {
+      background-color: #ffffff;
+      color: #00121d;
+    }
+  }
+}
+
+.ofgem-pill-button__label {
+  display: inline-block;
+}
+
+.ofgem-pill-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.ofgem-pill-button__icon svg {
+  display: block;
+}
+
+.ofgem-hero__release {
+  font-family: "GDS Transport", arial, sans-serif;
+  margin: 50px 0 0 0;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .ofgem-hero {
+    min-height: auto;
+    padding: 48px 16px;
+  }
+
+  .ofgem-hero__title-primary,
+  .ofgem-hero__title-secondary {
+    font-size: 32px; // GOV.UK heading-xl mobile
+  }
+
+  .ofgem-hero__inner {
+    padding: 32px 20px;
+  }
+}
+
 // Header service name - make text black
 .govuk-header__link--service-name {
   color: #000000 !important;
@@ -196,4 +369,72 @@
 .govuk-header__link--service-name:hover {
   color: #000000 !important;
   text-decoration: underline;
+}
+
+// Ofgem "Get started" landing page (MOJ-style homepage layout)
+.ofgem-landing {
+  font-family: "GDS Transport", arial, sans-serif;
+  padding: 40px 0 20px 0;
+}
+
+.ofgem-landing__intro {
+  max-width: 840px;
+  padding-bottom: 20px;
+}
+
+.ofgem-landing-section {
+  padding: 40px 0;
+  border-bottom: 1px solid #b1b4b6;
+
+  &--last {
+    border-bottom: none;
+  }
+
+  > .govuk-heading-l {
+    color: #002439;
+    margin-bottom: 24px;
+  }
+}
+
+.ofgem-landing-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr;
+
+  &--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  &--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ofgem-landing-card {
+  padding: 20px 0;
+
+  .govuk-heading-m {
+    color: #002439;
+    margin-bottom: 12px;
+  }
+
+  .govuk-body,
+  .govuk-list {
+    margin-bottom: 16px;
+  }
+
+  .govuk-link {
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 640px) {
+  .ofgem-landing-grid--2,
+  .ofgem-landing-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .ofgem-landing-section {
+    padding: 24px 0;
+  }
 }

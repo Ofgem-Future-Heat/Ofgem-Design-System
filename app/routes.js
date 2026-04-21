@@ -46,3 +46,21 @@ router.get('/pages/bus', (req, res) => {
     activePage: 'bus'
   })
 })
+
+router.get('/get-started', (req, res) => {
+  res.render('get-started', {
+    activePage: 'get-started'
+  })
+})
+
+router.get('/styles', (req, res) => {
+  res.render('styles', {
+    activePage: 'styles'
+  })
+})
+
+router.get('/accessibility', (req, res) => {
+  res.render('accessibility', {
+    activePage: 'accessibility'
+  })
+})

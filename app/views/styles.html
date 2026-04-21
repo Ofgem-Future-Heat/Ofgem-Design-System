@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Styles" %}
+
+{% block content %}
+
+<div class="design-system-layout">
+  {% include "common/styles-sidebar.html" %}
+
+  <main class="main-content">
+    <div class="ofgem-landing">
+  <div class="ofgem-landing__intro">
+    <h1 class="govuk-heading-xl">Styles</h1>
+
+    <p class="govuk-body-l">
+      Make Ofgem services look and feel consistent with the Ofgem Design System.
+    </p>
+
+    <p class="govuk-body">
+      If you are using the GOV.UK Prototype Kit or have GOV.UK Frontend included in your build,
+      the coded examples in the Ofgem Design System will not need any additional styling.
+    </p>
+
+    <p class="govuk-body">
+      If you need to apply styles manually, you should still follow existing Ofgem and GOV.UK
+      conventions. For example, do not assign new meanings to colours, do not change the style
+      of buttons or adjust the thickness of borders on form inputs.
+    </p>
+  </div>
+
+  <section class="ofgem-landing-section ofgem-landing-section--last">
+    <h2 class="govuk-heading-l">Visual elements</h2>
+
+    <ul class="govuk-list">
+      <li><a class="govuk-link" href="#">Colour</a></li>
+      <li><a class="govuk-link" href="#">Images</a></li>
+    </ul>
+  </section>
+</div>
+  </main>
+</div>
+
+{% endblock %}

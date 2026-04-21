@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Patterns" %}
+
+
+{% block content %}
+<style>
+  .component-card {
+    width: 100% !important;
+  }
+</style>
+
+<div class="design-system-layout">
+  {% include "common/patterns-sidebar.html" %}
+
+  <main class="main-content">
+    <h1 class="govuk-heading-xl">Patterns</h1>
+
+    <p class="govuk-body-l">
+      Patterns are best-practice solutions to common design problems that users face when using
+      Ofgem services. Use them alongside components to build pages that are consistent,
+      accessible and easy to use.
+    </p>
+
+      <div class="component-card">
+        <h3 class="govuk-heading-m"><a href="#">Approve an amendment</a></h3>
+        <div class="component-preview" style="min-height: 120px;">
+          <p class="govuk-body">
+            Let case handlers review and approve amendments raised against an existing Ofgem
+            application.
+          </p>
+        </div>
+        <p class="component-description">
+          Use this pattern when a user needs to check the detail of a requested change, compare
+          it against the current record, and either approve, reject or return it for more
+          information.
+        </p>
+        <a href="#" class="component-link">View the 'Approve an amendment' documentation</a>
+      </div>
+
+  </main>
+</div>
+
+{% endblock %}

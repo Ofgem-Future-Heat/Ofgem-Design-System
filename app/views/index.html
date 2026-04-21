@@ -4,60 +4,42 @@
 
 {% block content %}
 
-<div class="govuk-!-margin-top-4"></div>
-
-<div class="govuk-grid-row ">
-  <div class="govuk-grid-column-full">
-
-    <h1 class="govuk-heading-xl govuk-!-margin-top-6">
-      Welcome to {{ serviceName }}
+<div class="ofgem-hero">
+  <div class="ofgem-hero__inner">
+    <h1 class="ofgem-hero__title">
+      <span class="ofgem-hero__title-primary">Ofgem</span>
+      <span class="ofgem-hero__title-secondary">Design System</span>
     </h1>
 
-    <p class="govuk-body-l">
-      This prototype showcases design patterns and components intended for use in Ofgem projects.
-      These elements are currently undergoing iterative design and user testing.
+    <p class="ofgem-hero__description">
+      The Ofgem Design System defines the foundations of user interfaces across
+      Ofgem&rsquo;s digital services. It brings together all Ofgem product
+      and service experiences under a single, unified framework &mdash; ensuring
+      consistency, accessibility and coherence across every service we deliver.
     </p>
 
-    <br /><br />
+    <p class="ofgem-hero__description">
+      Use the Ofgem Design System alongside the
+      <a class="govuk-link" href="https://design-system.service.gov.uk/">GOV.UK Design System</a>
+      and
+      <a class="govuk-link" href="https://design-patterns.service.justice.gov.uk/">MOJ Design System</a>.
+    </p>
 
+    <p class="ofgem-hero__cta">
+      <a href="/get-started" class="ofgem-pill-button" role="button" draggable="false">
+        <span class="ofgem-pill-button__label">Get started</span>
+        <span class="ofgem-pill-button__icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" focusable="false">
+            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </span>
+      </a>
+    </p>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <h3 class="govuk-heading-m">Components</h3>
-        <p class="govuk-body">
-          Browse our collection of reusable components. <a href="/components">View components</a>
-        </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li> <a href="/components/header">Ofgem header</a></li>
-          <li> <a href="#">Filter</a></li>
-          <li> <a href="/components/profile">BUS profile </a></li>
-
-        </ul>
-      </div>
-
-
-    </div>
-
-    <!-- Pages -->
-     <!-- 
-    <div class="govuk-grid-row govuk-!-margin-top-6">
-      <div class="govuk-grid-column-one-third">
-        <h3 class="govuk-heading-m">Pages</h3>
-        <p class="govuk-body">
-          Pages to demo components and patterns. 
-        </p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li> <a href="/pages/bus">BUS profile, Application and Installer details</a></li>
-
-        </ul>
-      </div>
-
-
-    </div>
-    -->
-
+    <p class="ofgem-hero__release">
+      <a class="govuk-link" href="/release-notes">Release notes</a>
+    </p>
   </div>
 </div>
-<div class="govuk-!-margin-bottom-9"></div>
 
 {% endblock %}
