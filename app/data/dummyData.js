@@ -99,4 +99,4 @@ let dummyTableData = [{"id":"7908278280","status":"Violet","consent":"OC","appli
     {"id":"4988693139","status":"Aquamarine","consent":"AS","applicationDate":"7/7/2025","otherData":"9/11/2025"},
     {"id":"5648464274","status":"Teal","consent":"NA","applicationDate":"3/24/2024","otherData":"12/3/2025"}]
 
-export const dummyData = dummyTableData;
+module.exports = { dummyData: dummyTableData };
