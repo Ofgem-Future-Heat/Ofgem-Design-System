@@ -1,0 +1,202 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "About Ofgem Design System" %}
+{% set govukRebrand = true %}
+
+{% block header %}
+
+<style>
+    .govuk-width-container {
+        max-width: 1440px !important;
+        margin: 0 auto !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    .govuk-main-wrapper {
+        max-width: 1440px !important;
+        margin: 0 auto !important;
+    }
+
+    .govuk-grid-row {
+        max-width: 1440px !important;
+    }
+
+    /* White header with blue bottom border */
+    .ofgem-header {
+        background-color: #ffffff;
+        border-bottom: 4px solid #1d70b8;
+        width: 100%;
+    }
+
+    .govuk-header__container {
+        max-width: 1440px !important;
+        margin: 0 auto !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+        border-bottom: none !important;
+    }
+
+    /* Ofgem orange logo text */
+    .ofgem-logo__wordmark {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #f47738;
+        text-decoration: none;
+        line-height: 1;
+        letter-spacing: -0.5px;
+    }
+
+    .ofgem-logo__wordmark:hover,
+    .ofgem-logo__wordmark:focus {
+        color: #f47738;
+        text-decoration: underline;
+    }
+
+    /* "Design System" text beside the logo */
+    .ofgem-logo__service {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #0b0c0c;
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid #b1b4b6;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .ofgem-logo__link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .ofgem-logo__link:hover .ofgem-logo__wordmark {
+        text-decoration: underline;
+    }
+
+    /* Service navigation and footer light blue rebrand background */
+    .govuk-service-navigation {
+        background-color: #f4f8fb !important;
+        border-bottom: 1px solid #8EB8DC;
+    }
+
+    .govuk-footer {
+        background-color: #f4f8fb !important;
+        border-top: 4px solid #1d70b8;
+    }
+
+    .govuk-footer__meta {
+        border-top: none;
+    }
+
+    .ofgem-about__intro {
+        max-width: 40em;
+    }
+
+    .ofgem-prototyping-section {
+        margin-top: 60px;
+    }
+
+    .ofgem-prototyping-card {
+        margin-top: 40px;
+    }
+</style>
+
+<!-- Ofgem branded header: white background, blue border bottom -->
+<header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
+    <div class="govuk-header__container">
+        <div class="govuk-header__logo">
+            <a href="/" class="ofgem-logo__link" aria-label="Ofgem Design System — home">
+                <span class="ofgem-logo__wordmark" aria-hidden="true">Ofgem</span>
+                <span class="ofgem-logo__service">Design System</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+{{
+govukServiceNavigation({
+navigation: [
+    { href: "/components", text: "Components" },
+    { href: "/patterns", text: "Patterns" },
+    { href: "#", text: "Content style guide" }
+]
+})
+}}
+
+{% endblock %}
+
+{% block footer %}
+<footer class="govuk-footer" id="footer" role="contentinfo">
+    <div class="govuk-width-container">
+        <div class="govuk-footer__meta">
+            <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                <h2 class="govuk-visually-hidden">Ofgem links</h2>
+                <ul class="govuk-footer__inline-list">
+                    <li class="govuk-footer__inline-list-item">
+                        <a class="govuk-footer__link" href="#">Accessibility</a>
+                    </li>
+                    <li class="govuk-footer__inline-list-item">
+                        <a class="govuk-footer__link" href="#">Cookie policy</a>
+                    </li>
+                </ul>
+                <p class="govuk-body-s">© Ofgem 2026</p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">About Ofgem Design System</h1>
+
+        <div>
+            <p class="govuk-body">
+                The Ofgem Design System defines the foundations of user interfaces across Ofgem's digital services.
+                It brings together all Ofgem product and service experiences under a single, unified framework —
+                ensuring consistency, accessibility and coherence across every service we deliver.
+                <br><br>
+                Use the Ofgem Design System alongside the
+                <a class="govuk-link" href="https://design-system.service.gov.uk/">GOV.UK Design System</a>
+                and the
+                <a class="govuk-link" href="https://design-patterns.service.justice.gov.uk/">MOJ Design System</a>
+                .
+            </p>
+        </div>
+
+        <section class="ofgem-prototyping-section" aria-labelledby="prototyping-heading">
+            <h2 class="govuk-heading-m" id="prototyping-heading">Prototyping at Ofgem</h2>
+
+            <div class="ofgem-prototyping-card">
+                <h3 class="govuk-heading-m">How to set up Figma prototypes</h3>
+                <p class="govuk-body">
+                    Figma Kits help people create consistent designs that align with the Ofgem Design
+                    System. Learn how to access and use them in your design files.
+                    <br><br>
+                    <a class="govuk-link" href="#">How to set up Figma prototypes</a>
+                </p>
+            </div>
+
+            <div class="ofgem-prototyping-card">
+                <h3 class="govuk-heading-m">How to set up coded prototypes</h3>
+                <p class="govuk-body">
+                    Learn how to create coded prototypes using the Ofgem Design System components
+                    alongside the GOV.UK Prototype Kit.
+                    <br><br>
+                    <a class="govuk-link" href="#">How to set up coded prototypes</a>
+                </p>
+            </div>
+            <br><br>
+        </section>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -9,5 +9,8 @@
     "@ministryofjustice/frontend": "^5.1.5",
     "govuk-frontend": "^5.10.0",
     "govuk-prototype-kit": "13.17.0"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0"
   }
 }
