@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Ofgem header" %}
+{% set pageName = "Ofgem footer" %}
 {% set activeNav = "components" %}
 {% set govukRebrand = true %}
 
@@ -132,67 +132,32 @@
     .component-example {
       border: none;
       padding: 20px;
-        margin-bottom: 0;
-        background: #f3f2f1;
-        overflow: hidden;
+      margin-bottom: 0;
+      background: #f3f2f1;
+      overflow: hidden;
     }
 
-    .component-example .ofgem-header {
-        border-bottom: none;
-      min-height: 52px;
+    .component-example .govuk-footer {
+      margin-bottom: 0;
+      padding-top: 20px;
+      padding-bottom: 12px;
     }
 
-    .component-example .govuk-header__container {
-      padding-left: 24px !important;
+    .component-example .govuk-width-container {
+      max-width: none !important;
+      padding-left: 34px !important;
       padding-right: 24px !important;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      min-height: 52px;
-      height: 52px;
-      border-bottom: 4px solid #1d70b8;
-      background-color: #ffffff;
     }
 
-    .component-example .govuk-header__logo {
-      padding: 0 !important;
-      margin: 0 !important;
-      float: none;
-    }
-
-    .component-example .ofgem-logo__wordmark {
-      font-size: 20px;
+    .component-example .govuk-footer__meta {
+      margin-top: 4px;
     }
 
     @media (min-width: 641px) {
-      .component-example .govuk-header__container {
-        padding-left: 30px !important;
+      .component-example .govuk-width-container {
+        padding-left: 40px !important;
         padding-right: 30px !important;
       }
-    }
-
-    .component-example .ofgem-header__links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-left: auto;
-    }
-
-    .component-example .ofgem-header__links a {
-      font-family: "GDS Transport", arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.25;
-      color: #1d70b8;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .component-example .ofgem-header__links a:hover {
-      color: #003078;
-      text-decoration: underline;
     }
 </style>
 {{
@@ -235,8 +200,8 @@ navigation: [
     <nav aria-label="Components" class="govuk-!-padding-top-2">
       <ul class="components-nav__list">
         <li><a href="/components/filter">Filter</a></li>
-        <li><a href="/components/header" aria-current="page">Ofgem header</a></li>
-        <li><a href="/components/footer">Ofgem footer</a></li>
+        <li><a href="/components/header">Ofgem header</a></li>
+        <li><a href="/components/footer" aria-current="page">Ofgem footer</a></li>
         <li><a href="/components/profile">Profile banner</a></li>
       </ul>
     </nav>
@@ -251,59 +216,63 @@ navigation: [
       ]
     }) }}
 
-    <h1 class="govuk-heading-xl">Ofgem header</h1>
+    <h1 class="govuk-heading-xl">Ofgem footer</h1>
 
     <p class="govuk-body">
-      The Ofgem header identifies the service as an official Ofgem digital service.
-      It appears at the top of every page and includes the Ofgem logo and, where applicable, the service name.
+      The Ofgem footer appears at the bottom of every page and provides links to legal and policy pages including Accessibility and Cookie policy.
     </p>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-to-use">
       <h2 class="govuk-heading-m" id="when-to-use">When to use this component</h2>
       <p class="govuk-body">
-        Use the Ofgem header on all internal and customer-facing digital services. Always display the Ofgem logo on the left.
+        Use on all Ofgem digital services. The footer must include the Accessibility statement link and the Cookie policy link.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-not-to-use">
       <h2 class="govuk-heading-m" id="when-not-to-use">When not to use this component</h2>
       <p class="govuk-body">
-        Do not use this header for services that are hosted on GOV.UK — use the GOV.UK header instead.
+        Do not omit the footer from any page. Do not replace it with a custom footer that removes the required legal links.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="how-it-works">
       <h2 class="govuk-heading-m" id="how-it-works">How it works</h2>
       <p class="govuk-body">
-        The header uses the standard Ofgem orange logo mark and sets the service identity. Keep the header minimal — avoid adding icons,
-        navigation, or additional branding elements unless specified in Ofgem guidance.
+        The footer sits in a light grey band at the bottom of the page. It contains two links (Accessibility, Cookie policy) on the left,
+        and the copyright notice on the right: © Ofgem 2026.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
       <h2 class="govuk-heading-m" id="accessibility-heading">Accessibility</h2>
       <p class="govuk-body">
-        Ensure the Ofgem logo has descriptive alt text. The header landmark must be present on every page for screen reader navigation.
+        Ensure footer links are keyboard accessible and the content information landmark role is applied to the footer element.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="example-heading">
       <h2 class="govuk-heading-m" id="example-heading">Example</h2>
 
-      <div class="component-example" aria-label="Ofgem header example">
-        <header class="govuk-header ofgem-header" role="banner" data-module="govuk-header">
-          <div class="govuk-header__container">
-            <div class="govuk-header__logo">
-              <a href="#" class="ofgem-logo__link" aria-label="Ofgem home">
-                <span class="ofgem-logo__wordmark">Ofgem</span>
-              </a>
-            </div>
-            <div class="ofgem-header__links" aria-label="Header links">
-              <a href="#">Item 1</a>
-              <a href="#">Item 2</a>
+      <div class="component-example" aria-label="Ofgem footer example">
+        <footer class="govuk-footer" id="footer-example" role="contentinfo">
+          <div class="govuk-width-container">
+            <div class="govuk-footer__meta">
+              <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                <h2 class="govuk-visually-hidden">Ofgem links</h2>
+                <ul class="govuk-footer__inline-list">
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="#">Accessibility</a>
+                  </li>
+                  <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-footer__link" href="#">Cookie policy</a>
+                  </li>
+                </ul>
+                <p class="govuk-body-s">© Ofgem 2026</p>
+              </div>
             </div>
           </div>
-        </header>
+        </footer>
       </div>
     </section>
 

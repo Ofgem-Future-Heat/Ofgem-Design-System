@@ -8,30 +8,48 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% block header %}
 
 <style>
-    /* Override page width to full screen with max-width */
-    .govuk-width-container {
-        display: flex;
+    .govuk-width-container,
+    .govuk-header__container {
         max-width: 1440px !important;
-        /* width: 100% !important; */
         margin: 0 auto !important;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
 
-    /* Ensure the main content area uses full width */
+    @media (min-width: 641px) {
+        .govuk-width-container,
+        .govuk-header__container {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+    }
+
+    /* Increase gutter on normal PC screens where max-width hasn't created natural margins */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        .govuk-width-container,
+        .govuk-header__container {
+            padding-left: 160px !important;
+            padding-right: 160px !important;
+        }
+    }
+
+    @media (min-width: 1441px) {
+        .govuk-width-container,
+        .govuk-header__container {
+            padding-left: 250px !important;
+            padding-right: 250px !important;
+        }
+    }
+
     .govuk-main-wrapper {
         max-width: 1440px !important;
-        /* width: 100% !important; */
         margin: 0 auto !important;
         padding-top: 0px !important;
         padding-bottom: 0px !important;
-
     }
 
-    /* Override any other width constraints */
     .govuk-grid-row {
         max-width: 1440px !important;
-        /* width: 100% !important; */
     }
 
     .ofgem-header {
@@ -40,57 +58,72 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         width: 100%;
     }
 
-    /* Ensure header container uses full width */
-    .govuk-header__container {
-        max-width: 1440px !important;
-        /* width: 100% !important; */
-        margin: 0 auto !important;
-        padding-left: 30px !important;
-        padding-right: 30px !important;
+    .ofgem-logo__wordmark {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #EE7402;
+        line-height: 1;
+        letter-spacing: -0.5px;
+        vertical-align: middle;
     }
 
-    /* Ensure footer container uses full width */
-    /* .govuk-footer .govuk-width-container {
-        max-width: 1440px !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    } */
+    .ofgem-logo__service {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #EE7402;
+        padding-left: 10px;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .ofgem-logo__link {
+        display: inline-block;
+        position: relative;
+        white-space: nowrap;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+
+    /* Pseudo-element draws one solid line across full width — no inter-span gap possible */
+    .ofgem-logo__link:hover::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -5px;
+        height: 2px;
+        background-color: #EE7402;
+    }
 </style>
 
 <!-- Ofgem branded header -->
 <header class="govuk-header ofgem-header" id="header" role="banner" data-module="govuk-header">
     <div class="govuk-header__container" style="border-bottom: none;">
-        <div class="grid-container">
-            <div class="govuk-header__logo">
-
-                <img class="companyLogo" data-tenant-branding-logo="true"
-                    src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png"
-                    alt="Ofgem Logo" style="max-width: 278px;">
-
-
-            </div>
-
-
+        <div class="govuk-header__logo">
+            <a href="/" class="ofgem-logo__link" aria-label="Ofgem Design System — home">
+                <span class="ofgem-logo__wordmark">Ofgem</span>
+                <span class="ofgem-logo__service">Design System</span>
+            </a>
         </div>
     </div>
-
 </header>
 
+{% block serviceNav %}
 {{
 govukServiceNavigation({
 serviceName: serviceName,
 serviceUrl: "/",
 navigation: [
-    { href: "/get-started", text: "Get started" },
-    { href: "/styles", text: "Styles" },
-    { href: "/components", text: "Components" },
-    { href: "/patterns", text: "Patterns" },
-    { href: "/accessibility", text: "Accessibility" }
+    { href: "/components", text: "Components", active: activeNav == "components" },
+    { href: "#", text: "Patterns", active: activeNav == "patterns" },
+    { href: "#", text: "Content style guide", active: activeNav == "content-style-guide" }
 ]
 })
 }}
+{% endblock %}
 
 
 
