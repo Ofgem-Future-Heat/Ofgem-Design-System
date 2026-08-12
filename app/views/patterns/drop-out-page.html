@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Ofgem header" %}
-{% set activeNav = "components" %}
+{% set pageName = "Drop out page" %}
+{% set activeNav = "patterns" %}
 {% set govukRebrand = true %}
 
 {% block serviceNav %}
@@ -97,39 +97,39 @@
         border-top: none;
     }
 
-    .components-nav__list {
+    .patterns-nav__list {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .components-nav__list li {
+    .patterns-nav__list li {
         margin-bottom: 15px;
     }
 
-    .components-nav__list a {
+    .patterns-nav__list a {
         color: #1d70b8;
         font-size: 1rem;
         line-height: 1.25;
         text-decoration: none;
     }
 
-    .components-nav__list a:hover {
+    .patterns-nav__list a:hover {
         color: #003078;
         text-decoration: underline;
     }
 
-    .components-nav__list a[aria-current="page"] {
+    .patterns-nav__list a[aria-current="page"] {
         color: #0b0c0c;
         font-weight: 700;
         text-decoration: none;
     }
 
-    .components-col-nav {
+    .patterns-col-nav {
         padding-right: 0;
     }
 
-    .component-example {
+    .pattern-example {
       border: none;
       padding: 20px;
         margin-bottom: 0;
@@ -137,12 +137,12 @@
         overflow: hidden;
     }
 
-    .component-example .ofgem-header {
+    .pattern-example .ofgem-header {
         border-bottom: none;
       min-height: 52px;
     }
 
-    .component-example .govuk-header__container {
+    .pattern-example .govuk-header__container {
       padding-left: 24px !important;
       padding-right: 24px !important;
       padding-top: 0 !important;
@@ -157,31 +157,31 @@
       background-color: #ffffff;
     }
 
-    .component-example .govuk-header__logo {
+    .pattern-example .govuk-header__logo {
       padding: 0 !important;
       margin: 0 !important;
       float: none;
     }
 
-    .component-example .ofgem-logo__wordmark {
+    .pattern-example .ofgem-logo__wordmark {
       font-size: 30px;
     }
 
     @media (min-width: 641px) {
-      .component-example .govuk-header__container {
+      .pattern-example .govuk-header__container {
         padding-left: 30px !important;
         padding-right: 30px !important;
       }
     }
 
-    .component-example .ofgem-header__links {
+    .pattern-example .ofgem-header__links {
       display: flex;
       align-items: center;
       gap: 18px;
       margin-left: auto;
     }
 
-    .component-example .ofgem-header__links a {
+    .pattern-example .ofgem-header__links a {
       font-family: "GDS Transport", arial, sans-serif;
       font-size: 1rem;
       line-height: 1.25;
@@ -190,16 +190,33 @@
       text-underline-offset: 2px;
     }
 
-    .component-example .ofgem-header__links a:hover {
+    .pattern-example .ofgem-header__links a:hover {
       color: #003078;
       text-decoration: underline;
     }
+
+    .govuk-inset-text li {
+        margin-bottom: 5px;
+        margin-left: 0px;
+    }
+
+    .govuk-inset-text ul {
+        padding-inline-start: 20px;
+    }
+
+    .drop-out-body {
+        padding: 20px;
+        background-color: #ffffff;
+        padding-left: 30px;
+    }
+
 </style>
+
 {{
 govukServiceNavigation({
 navigation: [
-    { href: "/components", text: "Components", active: true },
-    { href: "/patterns", text: "Patterns" },
+    { href: "/components", text: "Components" },
+    { href: "/patterns", text: "Patterns", active: true },
     { href: "/content-style-guide", text: "Content style guide" }
 ]
 })
@@ -231,13 +248,10 @@ navigation: [
 
 <div class="govuk-grid-row govuk-!-padding-top-7" style="padding-bottom: 120px;">
 
-  <div class="govuk-grid-column-one-quarter components-col-nav">
-    <nav aria-label="Components" class="govuk-!-padding-top-2">
-      <ul class="components-nav__list">
-        <li><a href="/components/filter">Filter</a></li>
-        <li><a href="/components/header" aria-current="page">Ofgem header</a></li>
-        <li><a href="/components/footer">Ofgem footer</a></li>
-        <li><a href="/components/profile">Profile banner</a></li>
+  <div class="govuk-grid-column-one-quarter patterns-col-nav">
+    <nav aria-label="Patterns" class="govuk-!-padding-top-2">
+      <ul class="patterns-nav__list">
+        <li><a href="/patterns/drop-out-page" aria-current="page">Drop out page</a></li>
       </ul>
     </nav>
   </div>
@@ -247,50 +261,46 @@ navigation: [
     {{ govukBreadcrumbs({
       items: [
         { text: "Home", href: "/" },
-        { text: "Components", href: "/components" }
+        { text: "Patterns", href: "/patterns" }
       ]
     }) }}
 
-    <h1 class="govuk-heading-xl">Ofgem header</h1>
+    <h1 class="govuk-heading-xl">Drop out page</h1>
 
     <p class="govuk-body">
-      The Ofgem header identifies the service as an official Ofgem digital service.
-      It appears at the top of every page and includes the Ofgem logo and, where applicable, the service name.
+      The Drop-out Page is used when a user reaches a point in a journey where they cannot continue.
+      It provides a clear explanation of the outcome, why the decision has been made, and what options are available to the user next.
     </p>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-to-use">
-      <h2 class="govuk-heading-l" id="when-to-use">When to use this component</h2>
+      <h2 class="govuk-heading-l" id="when-to-use">When to use this pattern</h2>
       <p class="govuk-body">
-        Use the Ofgem header on all internal and customer-facing digital services. Always display the Ofgem logo on the left.
+        Use this pattern when a user is no longer able to proceed because they do not meet eligibility criteria or another business
+        rule prevents them from continuing. It should be used when a definitive decision has been reached.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-not-to-use">
-      <h2 class="govuk-heading-l" id="when-not-to-use">When not to use this component</h2>
+      <h2 class="govuk-heading-l" id="when-not-to-use">When not to use this pattern</h2>
       <p class="govuk-body">
-        Do not use this header for services that are hosted on GOV.UK — use the GOV.UK header instead.
+        Do not use this pattern for validation errors, missing information, or technical issues. If the user can continue
+        by correcting an error or providing additional information, standard error handling should be used instead.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="how-it-works">
       <h2 class="govuk-heading-l" id="how-it-works">How it works</h2>
       <p class="govuk-body">
-        The header uses the standard Ofgem orange logo mark and sets the service identity. Keep the header minimal — avoid adding icons,
-        navigation, or additional branding elements unless specified in Ofgem guidance.
+        The page clearly communicates the outcome, the reason for the decision, and any information that contributed to it.
+        Where appropriate, users should be given the option to review or change their answers, re-check eligibility, or follow any relevant next steps.
       </p>
     </section>
 
-    <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
-      <h2 class="govuk-heading-l" id="accessibility-heading">Accessibility</h2>
-      <p class="govuk-body">
-        Ensure the Ofgem logo has descriptive alt text. The header landmark must be present on every page for screen reader navigation.
-      </p>
-    </section>
+    <section class="govuk-!-margin-top-8" aria-labelledby="example-drop-out-page">
+      <h2 class="govuk-heading-l" id="example-drop-out-page">Example</h2>
 
-    <section class="govuk-!-margin-top-8" aria-labelledby="example-heading">
-      <h2 class="govuk-heading-l" id="example-heading">Example</h2>
-
-      <div class="component-example" aria-label="Ofgem header example">
+      <div class="pattern-example" aria-label="drop out page example">
+        
         <header class="govuk-header ofgem-header" role="banner" data-module="govuk-header">
           <div class="govuk-header__container">
             <div class="govuk-header__logo">
@@ -298,13 +308,51 @@ navigation: [
                 <span class="ofgem-logo__wordmark">Ofgem</span>
               </a>
             </div>
-            <div class="ofgem-header__links" aria-label="Header links">
-              <a href="#">Item 1</a>
-              <a href="#">Item 2</a>
-            </div>
           </div>
         </header>
+
+        <div class="drop-out-body">
+            <a href="#" class="govuk-back-link">Back</a>
+            <br></br>
+            <h1 class="govuk-heading-l">Sorry, you are not eligible</h1>
+            <p class="govuk-body">Reason for our decision goes here.</p>
+            <p class="govuk-body">Further elaboration of the eligibility and reasons behind drop out goes here.</p>
+
+            <div class="govuk-inset-text">
+                <p class="govuk-body">The one or two things that resulted in this decision</p>  
+                <ul>
+                    <li>address</li>
+                    <li>age</li>
+                    <li>location</li>
+                </ul>
+                <a href="#" class="govuk-link">Change</a>
+            </div>
+
+            <h1 class="govuk-heading-m">What happens next</h1>
+            <p class="govuk-body">You need to check with either:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>eligibility criteria 1</li>
+                <li>eligibility criteria 2</li>
+            </ul>
+            <p class="govuk-body">Further help text goes here</p>
+
+            <a href="#" class="govuk-body govuk-link">Check eligibility again</a>
+
+            <br></br>
+
+            <p class="govuk-body"><a href="#" class="govuk-link">Contact the [service] Helpline</a> if you need to make changes
+                to your claim or if you have any questions about your application. The helpline is open Monday to Friday, 9am to 5pm.</p>
+            </p>
+
+            <a href="#" class="govuk-body govuk-link">Print this page</a>
+
+            <br></br>
+            
+
+        </div>
+        
       </div>
+
     </section>
 
   </div>

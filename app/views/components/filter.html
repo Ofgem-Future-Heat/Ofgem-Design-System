@@ -311,8 +311,8 @@
 govukServiceNavigation({
 navigation: [
     { href: "/components", text: "Components", active: true },
-    { href: "#", text: "Patterns" },
-    { href: "#", text: "Content style guide" }
+    { href: "/patterns", text: "Patterns" },
+    { href: "/content-style-guide", text: "Content style guide" }
 ]
 })
 }}
@@ -370,7 +370,7 @@ navigation: [
     </p>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-to-use">
-      <h2 class="govuk-heading-m" id="when-to-use">When to use this component</h2>
+      <h2 class="govuk-heading-l" id="when-to-use">When to use this component</h2>
       <p class="govuk-body">
         Use the filter component when users need to narrow down a list or dataset by selecting one or more criteria.
         It is particularly useful on search results pages, data tables, and listing pages where there are many items to browse.
@@ -378,7 +378,7 @@ navigation: [
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-not-to-use">
-      <h2 class="govuk-heading-m" id="when-not-to-use">When not to use this component</h2>
+      <h2 class="govuk-heading-l" id="when-not-to-use">When not to use this component</h2>
       <p class="govuk-body">
         Do not use the filter component when there are fewer than 5 items in a list — it adds unnecessary complexity.
         Do not use it as a substitute for search. Avoid using the filter on pages where users are completing a task or filling in a form.
@@ -386,7 +386,7 @@ navigation: [
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="how-it-works">
-      <h2 class="govuk-heading-m" id="how-it-works">How it works</h2>
+      <h2 class="govuk-heading-l" id="how-it-works">How it works</h2>
       <p class="govuk-body">
         The filter component appears as a panel on the left-hand side of the content area. It contains one or more groups of checkboxes or radio buttons,
         each with a clear group label. Users select their criteria and apply the filter using a button. Results update in the main content area. A 'Clear filters' link should always be available when filters are applied.
@@ -394,7 +394,7 @@ navigation: [
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
-      <h2 class="govuk-heading-m" id="accessibility-heading">Accessibility</h2>
+      <h2 class="govuk-heading-l" id="accessibility-heading">Accessibility</h2>
       <p class="govuk-body">
         Ensure all filter controls have visible labels and are keyboard accessible. Use field set and legend elements to group related controls.
         Announce filter results dynamically using an ARIA live region so screen reader users are informed when the results update.
@@ -402,7 +402,7 @@ navigation: [
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="example-heading">
-      <h2 class="govuk-heading-m" id="example-heading">Example</h2>
+      <h2 class="govuk-heading-l" id="example-heading">Example</h2>
 
       <div class="component-example">
 
@@ -684,6 +684,16 @@ navigation: [
         </div>
       </div>
       -->
+
+    <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
+      <h2 class="govuk-heading-l" id="accessibility-heading">Research on this component</h2>
+      <p class="govuk-body">
+        Usability testing has been conducted on this component, and the results were positive, with no issues identified during testing.
+      </p>
+      <p class="govuk-body">
+        However, accessibility testing has not yet been carried out.
+      </p>
+    </section>
 
       <script>
         (function () {

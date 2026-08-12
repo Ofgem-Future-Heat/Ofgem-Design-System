@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Components" %}
-{% set activeNav = "components" %}
+{% set pageName = "Content style guide" %}
+{% set activeNav = "content-style-guide" %}
 {% set govukRebrand = true %}
 
 {% block serviceNav %}
@@ -99,41 +99,43 @@
         border-top: none;
     }
 
-    .components-nav__list {
+    .content-style-guide-nav__list {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-    .components-nav__list li {
+    .content-style-guide-nav__list li {
         margin-bottom: 15px;
     }
 
-    .components-nav__list a {
+    .content-style-guide-nav__list a {
         color: #1d70b8;
         font-size: 1rem;
         line-height: 1.25;
         text-decoration: none;
     }
 
-    .components-nav__list a:hover {
+    .content-style-guide-nav__list a:hover {
         color: #003078;
         text-decoration: underline;
     }
 
-    .components-col-nav {
+    .content-style-guide-col-nav {
         padding-right: 0;
     }
+
     .content {
         min-height: 56vh;
     }
 </style>
+
 {{
 govukServiceNavigation({
 navigation: [
-    { href: "/components", text: "Components", active: true },
+    { href: "/components", text: "Components" },
     { href: "/patterns", text: "Patterns" },
-    { href: "/content-style-guide", text: "Content style guide" }
+    { href: "/content-style-guide", text: "Content style guide", active: true }
 ]
 })
 }}
@@ -143,34 +145,9 @@ navigation: [
 
 <div class="govuk-grid-row govuk-!-padding-top-7 content">
 
-  <div class="govuk-grid-column-one-quarter components-col-nav">
-    <nav aria-label="Components" class="govuk-!-padding-top-2">
-      <ul class="components-nav__list">
-        <li><a href="/components/filter">Filter</a></li>
-        <li><a href="/components/header">Ofgem header</a></li>
-        <li><a href="/components/footer">Ofgem footer</a></li>
-        <li><a href="/components/profile">Profile banner</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="govuk-grid-column-three-quarters">
-
-    {{ govukBreadcrumbs({
-      items: [
-        { text: "Home", href: "/" }
-      ]
-    }) }}
-
-    <h1 class="govuk-heading-xl">Components</h1>
-
-    <p class="govuk-body">
-      Components are reusable parts of a user interface that have been made to support a variety
-      of applications. Individual components can be used in multiple different pages, patterns and
-      context.
-    </p>
-
-  </div>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+        This page is not available at the moment. Please check back later.
+    </h1>
 
 </div>
 
