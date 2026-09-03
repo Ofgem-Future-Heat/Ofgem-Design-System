@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName = "Ofgem header" %}
+{% set pageName = "Multi file upload" %}
 {% set activeNav = "components" %}
 {% set govukRebrand = true %}
 
@@ -73,7 +73,7 @@
         vertical-align: middle;
     }
 
-      .ofgem-header .govuk-header__container {
+    .ofgem-header .govuk-header__container {
         min-height: 65px;
         height: 65px;
         display: flex;
@@ -86,13 +86,13 @@
         padding-right: 0 !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
-      }
+    }
 
-      .ofgem-header .govuk-header__logo {
+    .ofgem-header .govuk-header__logo {
         padding: 0 !important;
         margin: 0 !important;
         float: none;
-      }
+    }
 
     .ofgem-logo__link {
         display: inline-block;
@@ -183,71 +183,61 @@
 
     .component-example {
       border: none;
+      padding: 24px;
+      margin-bottom: 0;
+      background: #f3f2f1;
+      overflow: hidden;
+    }
+
+    .multi-upload {
+      max-width: 620px;
+      background: #ffffff;
+      border: 1px solid #d8dde0;
       padding: 20px;
-        margin-bottom: 0;
-        background: #f3f2f1;
-        overflow: hidden;
     }
 
-    .component-example .ofgem-header {
-      background-color: #002337;
-      border-bottom: none;
-      min-height: 65px;
+    .multi-upload .govuk-form-group {
+      margin-bottom: 0;
     }
 
-    .component-example .govuk-header__container {
-      padding-left: 24px !important;
-      padding-right: 24px !important;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
+    .multi-upload .govuk-label {
+      font-weight: 400;
+    }
+
+    .multi-upload__button {
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    .multi-upload__uploaded-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .multi-upload__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid #b1b4b6;
+    }
+
+    .multi-upload__list-item {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 15px;
-      min-height: 65px;
-      height: 65px;
-      border-bottom: none;
-      background-color: #002337;
-    }
-
-    .component-example .govuk-header__logo {
-      padding: 0 !important;
-      margin: 0 !important;
-      float: none;
-    }
-
-    .component-example .ofgem-logo__wordmark {
-
-      font-size: 32px;
-
-    }
-
-    @media (min-width: 641px) {
-      .component-example .govuk-header__container {
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-      }
-    }
-
-    .component-example .ofgem-header__links {
-      display: flex;
       align-items: center;
-      gap: 18px;
-      margin-left: auto;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #b1b4b6;
     }
 
-    .component-example .ofgem-header__links a {
-      font-family: "GDS Transport", arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.25;
-      color: #FFFFFF;
-      text-decoration: underline;
-      text-underline-offset: 2px;
+    .multi-upload__file {
+      margin: 0;
+      overflow-wrap: anywhere;
     }
 
-    .component-example .ofgem-header__links a:hover {
-      color: #FFFFFF;
-      text-decoration: underline;
+    .multi-upload__empty {
+      margin: 0;
+      color: #505a5f;
     }
 </style>
 {{
@@ -291,9 +281,9 @@ navigation: [
     <nav aria-label="Components" class="govuk-!-padding-top-2">
       <ul class="components-nav__list">
         <li><a href="/components/filter">Filter</a></li>
-        <li><a href="/components/multi-file-upload">Multi file upload</a></li>
+        <li><a href="/components/multi-file-upload" aria-current="page">Multi file upload</a></li>
         <li><a href="/components/footer">Ofgem footer</a></li>
-        <li><a href="/components/header" aria-current="page">Ofgem header</a></li>
+        <li><a href="/components/header">Ofgem header</a></li>
         <li><a href="/components/profile-banner">Profile banner</a></li>
       </ul>
     </nav>
@@ -308,59 +298,78 @@ navigation: [
       ]
     }) }}
 
-    <h1 class="govuk-heading-xl">Ofgem header</h1>
+    <h1 class="govuk-heading-xl">Multi file upload</h1>
 
     <p class="govuk-body">
-      The Ofgem header identifies the service as an official Ofgem digital service.
-      It appears at the top of every page and includes the Ofgem logo and, where applicable, the service name.
+      The multi file upload component lets users select and upload multiple files at once.
+      It provides a drag-and-drop area alongside a file picker, and allows users to remove files after uploading.
     </p>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-to-use">
       <h2 class="govuk-heading-l" id="when-to-use">When to use this component</h2>
       <p class="govuk-body">
-        Use the Ofgem header on all internal and customer-facing digital services. Always display the Ofgem logo on the left.
+        Use the multi file upload component when users need to submit more than one file as part of a form or task, 
+        for example, uploading supporting documents, evidence files, or images as part of an application or submission.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-not-to-use">
       <h2 class="govuk-heading-l" id="when-not-to-use">When not to use this component</h2>
       <p class="govuk-body">
-        Do not use this header for services that are hosted on GOV.UK — use the GOV.UK header instead.
+        Do not use the multi file upload component when users only need to upload a single file, 
+        use the <a href="https://design-system.service.gov.uk/components/file-upload/" target="_blank" rel="noreferrer noopener">file upload component from GOV.UK Design System</a> instead.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="how-it-works">
       <h2 class="govuk-heading-l" id="how-it-works">How it works</h2>
       <p class="govuk-body">
-        The header uses the standard Ofgem orange logo mark and sets the service identity. Keep the header minimal — avoid adding icons,
-        navigation, or additional branding elements unless specified in Ofgem guidance.
+        The component displays a drop zone where users can drag files from their device, or click a button to open a file picker.
+        Once files are added, each file is listed with its name, and size. Users can remove individual files from the list.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
       <h2 class="govuk-heading-l" id="accessibility-heading">Accessibility</h2>
       <p class="govuk-body">
-        Ensure the Ofgem logo has descriptive alt text. The header landmark must be present on every page for screen reader navigation.
+        Ensure the drop zone is keyboard accessible and can be activated with Enter or Space.
+        Upload status and error messages must be announced to screen readers using appropriate ARIA live regions.
+        All interactive elements must meet minimum contrast ratios.
       </p>
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="example-heading">
       <h2 class="govuk-heading-l" id="example-heading">Example</h2>
 
-      <div class="component-example" aria-label="Ofgem header example">
-        <header class="govuk-header ofgem-header" role="banner" data-module="govuk-header">
-          <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
-              <a href="#" class="ofgem-logo__link" aria-label="Ofgem home">
-                <span class="ofgem-logo__wordmark">Ofgem</span>
-              </a>
-            </div>
-            <div class="ofgem-header__links" aria-label="Header links">
-              <a href="#">Item 1</a>
-              <a href="#">Item 2</a>
-            </div>
-          </div>
-        </header>
+      <div class="component-example" aria-label="Multi file upload example">
+        <div class="multi-upload">
+          {{ govukFileUpload({
+            id: "multi-file-upload-input",
+            name: "multi-file-upload-input",
+            label: {
+              text: "Upload files"
+            },
+            hint: {
+              text: "Hint text"
+            },
+            attributes: {
+              multiple: "multiple"
+            },
+            javascript: true
+          }) }}
+
+          {{ govukButton({
+            text: "Upload file",
+            classes: "govuk-button--secondary multi-upload__button",
+            attributes: {
+              id: "multi-file-upload-button"
+            }
+          }) }}
+
+          <p class="govuk-body multi-upload__uploaded-title">Uploaded files</p>
+          <p class="govuk-body multi-upload__empty" id="uploaded-files-empty">No files uploaded yet</p>
+          <ul class="multi-upload__list" id="uploaded-files-list" aria-live="polite"></ul>
+        </div>
       </div>
     </section>
 
@@ -368,17 +377,73 @@ navigation: [
 
 </div>
 
+<script>
+  (function () {
+    const fileInput = document.getElementById('multi-file-upload-input')
+    const uploadButton = document.getElementById('multi-file-upload-button')
+    const uploadedList = document.getElementById('uploaded-files-list')
+    const emptyState = document.getElementById('uploaded-files-empty')
+    const uploadedFiles = []
+
+    function formatBytes (bytes) {
+      if (bytes === 0) return '0 B'
+      const sizes = ['B', 'KB', 'MB', 'GB']
+      const i = Math.floor(Math.log(bytes) / Math.log(1024))
+      const size = bytes / Math.pow(1024, i)
+      return (Math.round(size * 10) / 10) + ' ' + sizes[i]
+    }
+
+    function renderUploadedFiles () {
+      uploadedList.innerHTML = ''
+
+      uploadedFiles.forEach(function (file, index) {
+        const item = document.createElement('li')
+        item.className = 'multi-upload__list-item'
+
+        const fileText = document.createElement('p')
+        fileText.className = 'govuk-body multi-upload__file'
+        fileText.textContent = file.name + ' (' + formatBytes(file.size) + ')'
+
+        const deleteLink = document.createElement('a')
+        deleteLink.href = '#'
+        deleteLink.className = 'govuk-link'
+        deleteLink.textContent = 'Delete'
+        deleteLink.addEventListener('click', function (event) {
+          event.preventDefault()
+          uploadedFiles.splice(index, 1)
+          renderUploadedFiles()
+        })
+
+        item.appendChild(fileText)
+        item.appendChild(deleteLink)
+        uploadedList.appendChild(item)
+      })
+
+      const hasFiles = uploadedFiles.length > 0
+      emptyState.style.display = hasFiles ? 'none' : 'block'
+      uploadedList.style.display = hasFiles ? 'block' : 'none'
+    }
+
+    uploadButton.addEventListener('click', function (event) {
+      event.preventDefault()
+
+      const selectedFiles = Array.from(fileInput.files || [])
+      if (!selectedFiles.length) return
+
+      selectedFiles.forEach(function (file) {
+        uploadedFiles.push({ name: file.name, size: file.size })
+      })
+
+      fileInput.value = ''
+      fileInput.dispatchEvent(new Event('change', { bubbles: true }))
+      renderUploadedFiles()
+    })
+
+    renderUploadedFiles()
+  })()
+</script>
+
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
 
 
 

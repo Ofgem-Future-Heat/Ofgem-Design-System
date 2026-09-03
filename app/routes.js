@@ -21,10 +21,15 @@ router.get('/components', (req, res) => {
 })
 
 // Individual component pages
-router.get('/components/profile', (req, res) => {
-  res.render('components/profile', {
-    activePage: 'profile'
+router.get('/components/profile-banner', (req, res) => {
+  res.render('components/profile-banner', {
+    activePage: 'profile-banner'
   })
+})
+
+// Backward-compatible route for existing links
+router.get('/components/profile', (req, res) => {
+  res.redirect('/components/profile-banner')
 })
 
 

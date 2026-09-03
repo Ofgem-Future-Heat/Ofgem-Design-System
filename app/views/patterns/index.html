@@ -40,29 +40,59 @@
 
     /* White header with blue bottom border */
     .ofgem-header {
-        background-color: #ffffff;
-        border-bottom: 4px solid #1d70b8;
+        background-color: #002337;
+        border-bottom: none;
         width: 100%;
+        min-height: 65px;
     }
 
     .ofgem-logo__wordmark {
+
         font-family: "GDS Transport", arial, sans-serif;
-        font-size: 28px;
-        font-weight: 700;
-        color: #EE7402;
+
+        font-size: 32px;
+
+        font-weight: 550;
+
+        color: #FFFFFF;
+
         line-height: 1;
+
         letter-spacing: -0.5px;
+
         vertical-align: middle;
+
     }
 
     .ofgem-logo__service {
         font-family: "GDS Transport", arial, sans-serif;
         font-size: 18px;
         font-weight: 400;
-        color: #EE7402;
+        color: #FFFFFF;
         padding-left: 10px;
         line-height: 1;
         vertical-align: middle;
+    }
+
+    .ofgem-header .govuk-header__container {
+        min-height: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-bottom: none !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .ofgem-header .govuk-header__logo {
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none;
     }
 
     .ofgem-logo__link {
@@ -82,7 +112,7 @@
         right: 0;
         bottom: -5px;
         height: 2px;
-        background-color: #EE7402;
+        background-color: #FFFFFF;
     }
 
     .govuk-service-navigation {
@@ -91,12 +121,34 @@
     }
 
     .govuk-footer {
-        background-color: #f4f8fb !important;
-        border-top: 4px solid #1d70b8;
+        background-color: #002337 !important;
+        border-top: none;
+        min-height: 100px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .govuk-footer__meta {
         border-top: none;
+        color: #FFFFFF;
+    }
+
+    .govuk-footer__link,
+    .govuk-footer__link:visited,
+    .govuk-footer .govuk-body-s,
+    .govuk-footer p,
+    .govuk-footer a,
+    .govuk-footer a:visited {
+        color: #FFFFFF !important;
+    }
+
+    .ofgem-footer__logo {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 32px;
+        font-weight: 550;
+        line-height: 1;
+        color: #FFFFFF;
+        margin: 0 0 60px;
     }
 
     .patterns-nav__list {
@@ -172,3 +224,21 @@ navigation: [
 </div>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,30 +39,60 @@
     }
 
     .ofgem-header {
-        background-color: #ffffff;
-        border-bottom: 4px solid #1d70b8;
-        width: 100%;
+      background-color: #002337;
+      border-bottom: none;
+      width: 100%;
+      min-height: 65px;
     }
 
     .ofgem-logo__wordmark {
+
         font-family: "GDS Transport", arial, sans-serif;
-        font-size: 28px;
-        font-weight: 700;
-        color: #EE7402;
+
+        font-size: 32px;
+
+        font-weight: 550;
+
+        color: #FFFFFF;
+
         line-height: 1;
+
         letter-spacing: -0.5px;
+
         vertical-align: middle;
+
     }
 
     .ofgem-logo__service {
         font-family: "GDS Transport", arial, sans-serif;
         font-size: 18px;
         font-weight: 400;
-        color: #EE7402;
+        color: #FFFFFF;
         padding-left: 10px;
         line-height: 1;
         vertical-align: middle;
     }
+
+      .ofgem-header .govuk-header__container {
+        min-height: 65px;
+        height: 65px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-bottom: none !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .ofgem-header .govuk-header__logo {
+        padding: 0 !important;
+        margin: 0 !important;
+        float: none;
+      }
 
     .ofgem-logo__link {
         display: inline-block;
@@ -80,7 +110,7 @@
         right: 0;
         bottom: -5px;
         height: 2px;
-        background-color: #EE7402;
+        background-color: #FFFFFF;
     }
 
     .govuk-service-navigation {
@@ -89,12 +119,34 @@
     }
 
     .govuk-footer {
-        background-color: #f4f8fb !important;
-        border-top: 4px solid #1d70b8;
+        background-color: #002337 !important;
+        border-top: none;
+        min-height: 100px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .govuk-footer__meta {
         border-top: none;
+        color: #FFFFFF;
+    }
+
+    .govuk-footer__link,
+    .govuk-footer__link:visited,
+    .govuk-footer .govuk-body-s,
+    .govuk-footer p,
+    .govuk-footer a,
+    .govuk-footer a:visited {
+      color: #FFFFFF !important;
+    }
+
+    .ofgem-footer__logo {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 32px;
+        font-weight: 550;
+        line-height: 1;
+        color: #FFFFFF;
+        margin: 0 0 60px;
     }
 
     .components-nav__list {
@@ -177,6 +229,7 @@ navigation: [
         <div class="govuk-footer__meta">
             <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
                 <h2 class="govuk-visually-hidden">Ofgem links</h2>
+                <p class="ofgem-footer__logo" aria-hidden="true">Ofgem</p>
                 <ul class="govuk-footer__inline-list">
                     <li class="govuk-footer__inline-list-item">
                         <a class="govuk-footer__link" href="#">Accessibility</a>
@@ -200,9 +253,10 @@ navigation: [
     <nav aria-label="Components" class="govuk-!-padding-top-2">
       <ul class="components-nav__list">
         <li><a href="/components/filter">Filter</a></li>
-        <li><a href="/components/header">Ofgem header</a></li>
+        <li><a href="/components/multi-file-upload">Multi file upload</a></li>
         <li><a href="/components/footer">Ofgem footer</a></li>
-        <li><a href="/components/profile" aria-current="page">Profile banner</a></li>
+        <li><a href="/components/header">Ofgem header</a></li>
+        <li><a href="/components/profile-banner" aria-current="page">Profile banner</a></li>
       </ul>
     </nav>
   </div>
@@ -256,8 +310,56 @@ navigation: [
       <h2 class="govuk-heading-l" id="example-heading">Example</h2>
         <div class="component-example" aria-label="Profile banner example">
             <div class="profile-banner" id="profile-banner-example">
-                {% include "common/profile.html" %}
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                  <div style="background:#1d70b8; padding:30px 30px 30px 30px; box-sizing: border-box;">
+                    <div style="display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; margin: 0;">
+                      <div style="display: flex; flex-direction: column; gap: 10px; width: 45%;" id="key">
+                        <span class="govuk-caption-m" style="color:white;">Caption</span>
+                        <h1 class="govuk-heading-l" style="color:white; margin: 0 0 2px 0;">H1</h1>
+                        <span class="govuk-body-m" style="color:white;">Description</span>
+                      </div>
+
+                      <div style="display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-start; min-width: 420px;">
+                        {{ govukButton({
+                          text: "Call to action",
+                          classes: "govuk-button--secondary govuk-!-margin-bottom-0",
+                          attributes: {
+                            type: "button"
+                          }
+                        }) }}
+
+                        <div class="govuk-caption-m" style="display: flex; gap: 60px; justify-content: flex-end; width: 100%; text-align: right; margin-top: 30px;" id="meta">
+                            <div style="display: flex; flex-direction: column; align-items: flex-end; min-width: auto;">
+                              <span style="color:white; font-size: 19px; font-weight: bold;">Label</span>
+                              <span style="color:white; font-size: 19px;">Value</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: flex-end; min-width: auto;">
+                              <span style="color:white; font-size: 19px; font-weight: bold;">Label</span>
+                              <span style="color:white; font-size: 19px;">Value</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: flex-end; min-width: auto;">
+                              <span style="color:white; font-size: 19px; font-weight: bold;">Label</span>
+                              <span style="color:white; font-size: 19px; text-decoration: none;">Value</span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 10px; margin-top: 0; margin-bottom: 10px; background:#FFFFFF; padding:20px; border: 1px solid #1d70b8;">
+                    <span class="govuk-tag govuk-tag--blue" style="text-transform: none; max-width: 200px;">Status flag</span>
+                    <span class="govuk-tag govuk-tag--green" style="text-transform: none; max-width: 200px;">Status flag</span>
+                    <span class="govuk-tag govuk-tag--grey" style="text-transform: none; max-width: 200px;">Status flag</span>
+                    <span class="govuk-tag govuk-tag--red" style="text-transform: none; max-width: 200px;">Status flag</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {# Previous shared example retained for reference:
+               {% include "common/profile.html" %}
+            #}
         </div>
     </section>
 
@@ -266,3 +368,22 @@ navigation: [
 </div>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

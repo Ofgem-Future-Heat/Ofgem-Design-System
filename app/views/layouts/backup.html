@@ -9,9 +9,41 @@
     
     <style>
         .ofgem-header{
-            background-color: white;
-            border-bottom: solid 5px #1d70b8
+          background-color: #002337;
+          border-bottom: none;
+          min-height: 65px;
         }
+
+      .govuk-footer {
+        background-color: #002337 !important;
+        border-top: none;
+        min-height: 100px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .govuk-footer__meta {
+        border-top: none;
+        color: #FFFFFF;
+      }
+
+      .govuk-footer__link,
+      .govuk-footer__link:visited,
+      .govuk-footer .govuk-body-s,
+        .govuk-footer p,
+        .govuk-footer a,
+        .govuk-footer a:visited {
+          color: #FFFFFF !important;
+      }
+
+      .ofgem-footer__logo {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 32px;
+        font-weight: 550;
+        line-height: 1;
+        color: #FFFFFF;
+        margin: 0 0 60px;
+      }
     </style>
     
         <!-- {{ govukHeader({
@@ -71,6 +103,7 @@
               <div class="govuk-footer__meta">
                 <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
                     <h2 class="govuk-visually-hidden">Ofgem links</h2>
+                    <p class="ofgem-footer__logo" aria-hidden="true">Ofgem</p>
                     
                     <ul class="govuk-footer__inline-list">
                       
@@ -89,3 +122,14 @@
           </footer>
     
     {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
