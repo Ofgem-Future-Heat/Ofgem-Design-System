@@ -87,7 +87,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
     .ofgem-logo__service {
         font-family: "GDS Transport", arial, sans-serif;
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 400;
         color: #FFFFFF;
         padding-left: 10px;
@@ -114,14 +114,25 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         padding: 0 !important;
         margin: 0 !important;
         float: none;
+        width: auto !important;
+        max-width: none !important;
     }
 
-    .ofgem-logo__link {
-        display: inline-block;
+    .ofgem-header .ofgem-logo__link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px;
         position: relative;
-        white-space: nowrap;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
         text-decoration: none;
         vertical-align: middle;
+    }
+
+    .ofgem-header .ofgem-logo__service {
+        font-size: 24px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
     }
 
     /* Pseudo-element draws one solid line across full width — no inter-span gap possible */
@@ -174,7 +185,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         <div class="govuk-header__container" style="border-bottom: none;">
             <div class="govuk-header__logo">
                 <a href="/" class="ofgem-logo__link" aria-label="Ofgem Design System — home">
-                    <span class="ofgem-logo__wordmark">Ofgem</span>
+                    <img class="ofgem-logo__image" src="https://www.ofgem.gov.uk/themes/custom/numiko/logo.svg" alt="Ofgem" width="115" height="44" style="display:block;">
                     <span class="ofgem-logo__service">Design System</span>
                 </a>
             </div>
@@ -219,7 +230,7 @@ navigation: [
         <div class="govuk-footer__meta">
             <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
                 <h2 class="govuk-visually-hidden">Ofgem links</h2>
-                <p class="ofgem-footer__logo" aria-hidden="true">Ofgem</p>
+                <img class="ofgem-footer__logo" src="https://www.ofgem.gov.uk/themes/custom/numiko/logo.svg" alt="Ofgem" width="115" height="44" style="display:block;">
 
                 <ul class="govuk-footer__inline-list">
 

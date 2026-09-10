@@ -22,6 +22,24 @@
           min-height: 65px;
         }
 
+      .ofgem-logo__link {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px;
+        text-decoration: none;
+        white-space: nowrap !important;
+        flex-wrap: nowrap !important;
+      }
+
+      .ofgem-logo__service {
+        font-family: "GDS Transport", arial, sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #FFFFFF;
+        line-height: 1;
+        white-space: nowrap !important;
+      }
+
       .govuk-footer {
         background-color: #002337 !important;
         border-top: none;
@@ -72,10 +90,10 @@
                 <div class="govuk-header__container govuk-width-container" style="border-bottom: none;">
                   <div class="grid-container">
                     <div class="govuk-header__logo">
-                    
-                          <img class="companyLogo" data-tenant-branding-logo="true" src="https://ukspk8sprdb2csa.blob.core.windows.net/prduserflowtemplates/logo-with-strapline.png" alt="Ofgem Logo" style="max-width: 278px;">
-                        
-                      
+                        <a href="/" class="ofgem-logo__link" aria-label="Ofgem Design System — home">
+                          <img class="companyLogo" data-tenant-branding-logo="true" src="https://www.ofgem.gov.uk/themes/custom/numiko/logo.svg" alt="Ofgem" width="115" height="44" style="display:block; max-width: 115px;">
+                          <span class="ofgem-logo__service">Design System</span>
+                        </a>
                     </div>
                     
        
@@ -120,7 +138,7 @@
               <div class="govuk-footer__meta">
                 <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
                     <h2 class="govuk-visually-hidden">Ofgem links</h2>
-                    <p class="ofgem-footer__logo" aria-hidden="true">Ofgem</p>
+                    <img class="ofgem-footer__logo" src="https://www.ofgem.gov.uk/themes/custom/numiko/logo.svg" alt="Ofgem" width="115" height="44" style="display:block;">
                     
                     <ul class="govuk-footer__inline-list">
                       
