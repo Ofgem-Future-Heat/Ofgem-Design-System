@@ -1,0 +1,61 @@
+<form class="ofgem-filter" data-ofgem-filter>
+  <div class="ofgem-filter__heading">
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filter</h3>
+  </div>
+  <div class="ofgem-filter__selected">
+    <div class="ofgem-filter__selected-top">
+      <p class="ofgem-filter__selected-label">Selected filters</p>
+      <button class="ofgem-filter__clear govuk-link" type="button" hidden>Clear filters</button>
+    </div>
+    <p class="ofgem-filter__no-selection">No filters selected</p>
+    <ul class="ofgem-filter__selected-list" aria-live="polite" aria-label="Selected filters"></ul>
+  </div>
+  <div class="ofgem-filter__body">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="{{ filterId }}-accordion">
+      <div class="govuk-accordion__section govuk-accordion__section--expanded">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="{{ filterId }}-heading-1">Text input</span>
+          </h2>
+        </div>
+        <div id="{{ filterId }}-content-1" class="govuk-accordion__section-content">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="{{ filterId }}-text">Label</label>
+            <input class="govuk-input" id="{{ filterId }}-text" name="query" type="text" data-filter-label="Text input">
+          </div>
+        </div>
+      </div>
+      <div class="govuk-accordion__section govuk-accordion__section--expanded">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="{{ filterId }}-heading-2">Checkboxes</span>
+          </h2>
+        </div>
+        <div id="{{ filterId }}-content-2" class="govuk-accordion__section-content">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" data-filter-label="Checkboxes">
+              <legend class="govuk-fieldset__legend">Label</legend>
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="{{ filterId }}-a" name="options" type="checkbox" value="a">
+                  <label class="govuk-label govuk-checkboxes__label" for="{{ filterId }}-a">Option A</label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="{{ filterId }}-b" name="options" type="checkbox" value="b">
+                  <label class="govuk-label govuk-checkboxes__label" for="{{ filterId }}-b">Option B</label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="{{ filterId }}-c" name="options" type="checkbox" value="c">
+                  <label class="govuk-label govuk-checkboxes__label" for="{{ filterId }}-c">Option C</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ofgem-filter__apply">
+    <button class="govuk-button govuk-!-margin-bottom-0" type="submit" data-module="govuk-button">Apply filters</button>
+  </div>
+</form>

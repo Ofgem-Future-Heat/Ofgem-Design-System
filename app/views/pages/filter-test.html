@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Filter test" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Test</h1>
+
+<form class="ofgem-filter" data-ofgem-filter style="margin-bottom: 5rem;">
+  <div class="ofgem-filter__heading">
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filter</h3>
+  </div>
+  <div class="ofgem-filter__selected">
+    <div class="ofgem-filter__selected-top">
+      <p class="ofgem-filter__selected-label">Selected filters</p>
+      <button class="ofgem-filter__clear govuk-link" type="button" hidden>Clear filters</button>
+    </div>
+    <p class="ofgem-filter__no-selection">No filters selected</p>
+    <ul class="ofgem-filter__selected-list" aria-live="polite" aria-label="Selected filters"></ul>
+  </div>
+  <div class="ofgem-filter__body">
+    <div class="govuk-accordion" data-module="govuk-accordion" id="example-filter-accordion">
+      <div class="govuk-accordion__section govuk-accordion__section--expanded">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="example-filter-heading-1">Text input</span>
+          </h2>
+        </div>
+        <div id="example-filter-content-1" class="govuk-accordion__section-content">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="example-filter-text">Label</label>
+            <input class="govuk-input" id="example-filter-text" name="query" type="text" data-filter-label="Text input">
+          </div>
+        </div>
+      </div>
+      <div class="govuk-accordion__section govuk-accordion__section--expanded">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="example-filter-heading-2">Checkboxes</span>
+          </h2>
+        </div>
+        <div id="example-filter-content-2" class="govuk-accordion__section-content">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" data-filter-label="Checkboxes">
+              <legend class="govuk-fieldset__legend">Label</legend>
+              <div class="govuk-checkboxes govuk-checkboxes--small">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="example-filter-a" name="options" type="checkbox" value="a">
+                  <label class="govuk-label govuk-checkboxes__label" for="example-filter-a">Option A</label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="example-filter-b" name="options" type="checkbox" value="b">
+                  <label class="govuk-label govuk-checkboxes__label" for="example-filter-b">Option B</label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="example-filter-c" name="options" type="checkbox" value="c">
+                  <label class="govuk-label govuk-checkboxes__label" for="example-filter-c">Option C</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ofgem-filter__apply">
+    <button class="govuk-button govuk-!-margin-bottom-0" type="submit" data-module="govuk-button">Apply filters</button>
+  </div>
+</form>
+
+
+{% endblock %}

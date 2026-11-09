@@ -5,6 +5,11 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+{% block head %}
+{{ super() }}
+<script src="/public/javascripts/ofgem-filter.js" defer></script>
+{% endblock %}
+
 {% block headIcons %}
 <link rel="icon" href="https://www.ofgem.gov.uk/themes/custom/numiko/favicon.ico" type="image/vnd.microsoft.icon">
 <link rel="apple-touch-icon" sizes="180x180" href="https://www.ofgem.gov.uk/themes/custom/numiko/favicons/apple-touch-icon.png">

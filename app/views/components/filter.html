@@ -39,28 +39,20 @@
     }
 
     .ofgem-header {
-      background-color: #002337;
-      border-bottom: none;
-      width: 100%;
-      min-height: 65px;
+        background-color: #002337;
+        border-bottom: none;
+        width: 100%;
+        min-height: 65px;
     }
 
     .ofgem-logo__wordmark {
-
         font-family: "GDS Transport", arial, sans-serif;
-
         font-size: 32px;
-
         font-weight: 550;
-
         color: #FFFFFF;
-
         line-height: 1;
-
         letter-spacing: -0.5px;
-
         vertical-align: middle;
-
     }
 
     .ofgem-logo__service {
@@ -73,7 +65,7 @@
         vertical-align: middle;
     }
 
-      .ofgem-header .govuk-header__container {
+    .ofgem-header .govuk-header__container {
         min-height: 65px;
         height: 65px;
         display: flex;
@@ -82,17 +74,14 @@
         border-bottom: none !important;
         max-width: none !important;
         margin: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-      }
+        padding: 0 !important;
+    }
 
-      .ofgem-header .govuk-header__logo {
+    .ofgem-header .govuk-header__logo {
         padding: 0 !important;
         margin: 0 !important;
         float: none;
-      }
+    }
 
     .ofgem-logo__link {
         display: inline-block;
@@ -137,7 +126,7 @@
     .govuk-footer p,
     .govuk-footer a,
     .govuk-footer a:visited {
-      color: #FFFFFF !important;
+        color: #FFFFFF !important;
     }
 
     .ofgem-footer__logo {
@@ -149,253 +138,104 @@
         margin: 0 0 60px;
     }
 
-    .components-nav__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+    .components-nav__list { list-style: none; padding: 0; margin: 0; }
+    .components-nav__list li { margin-bottom: 15px; }
+    .components-nav__list a { color: #1d70b8; font-size: 1rem; line-height: 1.25; text-decoration: none; }
+    .components-nav__list a:hover { color: #003078; text-decoration: underline; }
+    .components-nav__list a[aria-current="page"] { color: #0b0c0c; font-weight: 700; text-decoration: none; }
+    .components-col-nav { padding-right: 0; }
+    .component-example { border: none; padding: 30px; margin-bottom: 0; background: #f3f2f1; }
+    .filter-documentation { min-width: 0; }
+    .filter-code { margin: 0; border: 1px solid #b1b4b6; background: #ffffff; }
+    .filter-code > summary { display: block; width: fit-content; margin: 0; padding: 15px 20px; border-right: 1px solid transparent; list-style: none; }
+    .filter-code.govuk-details > .govuk-details__summary::before,
+    .filter-code.govuk-details[open] > .govuk-details__summary::before { display: none; content: none; }
+    .filter-code > summary::-webkit-details-marker { display: none; }
+    .filter-code.govuk-details[open] > .govuk-details__summary { position: relative; margin-bottom: 0; border-right-color: #b1b4b6; }
+    .filter-code.govuk-details[open] > .govuk-details__summary::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: #ffffff;
+      z-index: 1;
+      pointer-events: none;
     }
-
-    .components-nav__list li {
-        margin-bottom: 15px;
-    }
-
-    .components-nav__list a {
-        color: #1d70b8;
-        font-size: 1rem;
-        line-height: 1.25;
-        text-decoration: none;
-    }
-
-    .components-nav__list a:hover {
-        color: #003078;
-        text-decoration: underline;
-    }
-
-    .components-nav__list a[aria-current="page"] {
-        color: #0b0c0c;
-        font-weight: 700;
-        text-decoration: none;
-    }
-
-    .components-col-nav {
-        padding-right: 0;
-    }
-
-    /* Filter component example styles */
-    .component-example {
-      border: none;
-        padding: 30px;
-        margin-bottom: 0;
-      background: #f3f2f1;
-    }
-
-    .filter-example-panel {
-      width: 300px;
-      max-width: 100%;
-    }
-
-    .filter-example-panel__label {
-        display: block;
-        font-size: 0.875rem;
-        font-weight: 700;
-        color: #505a5f;
-        margin-bottom: 10px;
-    }
-
-    .ofgem-filter {
-        background-color: #ffffff;
-        padding: 0;
-        border: 1px solid #b1b4b6;
-        overflow: hidden;
-    }
-
-    .ofgem-filter__heading {
-        background-color: #d9d9d9;
-        padding: 12px 15px;
-        border-bottom: 1px solid #b1b4b6;
-    }
-
-    .ofgem-filter__selected {
-        background-color: #f3f2f1;
-        padding: 12px 15px;
-        border-bottom: 1px solid #b1b4b6;
-    }
-
-    .ofgem-filter__selected-top {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .ofgem-filter__selected-label {
-      font-size: 1.1875rem;
-        font-weight: 700;
-      line-height: 1.3157894737;
-      margin: 0 0 10px;
-    }
-
-    .ofgem-filter__no-selection {
-        font-size: 0.875rem;
-        color: #505a5f;
-        margin: 0;
-    }
-
-    .ofgem-filter__selected-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .ofgem-filter__selected-item {
-      display: block;
-      max-width: 100%;
-    }
-
-    .ofgem-filter__selected-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .ofgem-filter__selected-type {
-      font-family: "GDS Transport", arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.25;
-      margin: 0 0 4px;
-      color: #0b0c0c;
-    }
-
-    .ofgem-filter__selected-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 8px;
-      border: 1px solid #b1b4b6;
-      background-color: #ffffff;
-      max-width: 100%;
-    }
-
-    .ofgem-filter__selected-value {
-      font-family: "GDS Transport", arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.25;
-      overflow-wrap: anywhere;
-    }
-
-    .ofgem-filter__remove {
-      border: 0;
+    .filter-code > .govuk-details__summary:focus {
       background: transparent;
-      padding: 0;
-      font-size: 1rem;
-      line-height: 1;
+      box-shadow: none;
+      outline: none;
+    }
+    .filter-code > .govuk-details__summary:focus > .govuk-details__summary-text {
+      background: #ffdd00;
       color: #0b0c0c;
-      cursor: pointer;
+      box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+      outline: 3px solid transparent;
+      text-decoration: none;
     }
-
-    .ofgem-filter__clear {
-      display: none;
-      font-size: 0.875rem;
-      color: #1d70b8;
-      margin-left: auto;
-    }
-
-    .ofgem-filter__clear.is-visible {
-      display: inline;
-    }
-
-    /* Remove default accordion outer border inside filter */
-    .ofgem-filter__body .govuk-accordion {
-        border: none;
-      margin: 0;
-      padding-top: 10px;
-    }
-
-    .ofgem-filter__body .govuk-accordion__section-header {
-      padding: 10px 15px;
-    }
-
-    .ofgem-filter__body .govuk-accordion__section-content {
-      padding: 2px 15px 12px;
-    }
-
-    .ofgem-filter__body .govuk-accordion__show-all {
-      margin-left: 15px;
-      margin-bottom: 8px;
-    }
-
-    .ofgem-filter__body .govuk-accordion__controls {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .ofgem-filter__body .govuk-accordion__section-button {
-      font-size: 1rem;
-      line-height: 1.25;
-    }
-
-    .ofgem-filter__apply {
-        padding: 15px;
-        border-top: 1px solid #b1b4b6;
-    }
-
-    .ofgem-filter__checkbox-label {
-      margin-bottom: 8px;
-    }
-
-    /* Code block display */
-    .code-block {
-        background: #f3f2f1;
-        border: 1px solid #b1b4b6;
+    .filter-code__panel { padding: 20px; border-top: 1px solid #b1b4b6; }
+    .filter-code__toolbar { display: flex; align-items: baseline; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
+    .filter-code__toolbar .govuk-button { margin: 0; }
+    .filter-code__status { margin: 0; }
+    .filter-code__source {
+        box-sizing: border-box;
+        max-width: 100%;
+        margin: 0;
         padding: 20px;
-        overflow-x: auto;
-        font-family: monospace;
-        font-size: 0.875rem;
-        line-height: 1.6;
+      overflow-x: auto;
+      overflow-y: hidden;
+        background: #f3f2f1;
+        color: #0b0c0c;
+      font-family: Consolas, monospace;
         white-space: pre;
-        margin-bottom: 0;
+        tab-size: 2;
     }
+      .filter-code__source > code {
+        display: block;
+        padding: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        white-space: inherit;
+      }
+    .filter-code__source:focus { outline: 3px solid #ffdd00; outline-offset: 0; }
+    .filter-code .token.tag { color: #a31515; }
+    .filter-code .token.attr-name { color: #00613c; }
+    .filter-code .token.attr-value { color: #003e8c; }
+    .filter-code .token.punctuation { color: #505a5f; }
+    .filter-code .token.comment { color: #505a5f; }
 </style>
-{{
-govukServiceNavigation({
-navigation: [
+{{ govukServiceNavigation({
+  navigation: [
     { href: "/components", text: "Components", active: true },
     { href: "/patterns", text: "Patterns" },
     { href: "/content-style-guide", text: "Content style guide" }
-]
-})
-}}
+  ]
+}) }}
 {% endblock %}
 
 {% block footer %}
 <footer class="govuk-footer" id="footer" role="contentinfo">
-    <div class="govuk-width-container">
-        <div class="govuk-footer__meta">
-            <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-                <h2 class="govuk-visually-hidden">Ofgem links</h2>
-                <img class="ofgem-footer__logo" src="https://www.ofgem.gov.uk/themes/custom/numiko/logo.svg" alt="Ofgem" width="115" height="44" style="display:block;">
-                <ul class="govuk-footer__inline-list">
-                    <li class="govuk-footer__inline-list-item">
-                        <a class="govuk-footer__link" href="#">Accessibility</a>
-                    </li>
-                    <li class="govuk-footer__inline-list-item">
-                        <a class="govuk-footer__link" href="#">Cookie policy</a>
-                    </li>
-                </ul>
-                <p class="govuk-body-s">© Ofgem 2026</p>
-            </div>
-        </div>
+  <div class="govuk-width-container">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <h2 class="govuk-visually-hidden">Ofgem links</h2>
+        <img class="ofgem-footer__logo" src="https://www.ofgem.gov.uk/themes/custom/numiko/logo.svg" alt="Ofgem" width="115" height="44" style="display:block;">
+        <ul class="govuk-footer__inline-list">
+          <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="#">Accessibility</a></li>
+          <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="#">Cookie policy</a></li>
+        </ul>
+        <p class="govuk-body-s">© Ofgem 2026</p>
+      </div>
     </div>
+  </div>
 </footer>
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row govuk-!-padding-top-7" style="padding-bottom: 120px;">
-
   <div class="govuk-grid-column-one-quarter components-col-nav">
     <nav aria-label="Components" class="govuk-!-padding-top-2">
       <ul class="components-nav__list">
@@ -408,17 +248,13 @@ navigation: [
     </nav>
   </div>
 
-  <div class="govuk-grid-column-three-quarters">
-
-    {{ govukBreadcrumbs({
-      items: [
-        { text: "Home", href: "/" },
-        { text: "Components", href: "/components" }
-      ]
-    }) }}
+  <div class="govuk-grid-column-three-quarters filter-documentation">
+    {{ govukBreadcrumbs({ items: [
+      { text: "Home", href: "/" },
+      { text: "Components", href: "/components" }
+    ] }) }}
 
     <h1 class="govuk-heading-xl">Filter</h1>
-
     <p class="govuk-body">
       A filter component helps users narrow down a list or dataset by selecting one or more criteria, so they can quickly find what is relevant to them.
     </p>
@@ -428,7 +264,7 @@ navigation: [
       <p class="govuk-body">
         Use the filter component when users need to narrow down a list or dataset by selecting one or more criteria.
         It is particularly useful on search results pages, data tables, and listing pages where there are many items to browse.
-    </p>
+      </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="when-not-to-use">
@@ -436,7 +272,7 @@ navigation: [
       <p class="govuk-body">
         Do not use the filter component when there are fewer than 5 items in a list — it adds unnecessary complexity.
         Do not use it as a substitute for search. Avoid using the filter on pages where users are completing a task or filling in a form.
-    </p>
+      </p>
     </section>
 
     <section class="govuk-!-margin-top-6" aria-labelledby="how-it-works">
@@ -444,7 +280,7 @@ navigation: [
       <p class="govuk-body">
         The filter component appears as a panel on the left-hand side of the content area. It contains one or more groups of checkboxes or radio buttons,
         each with a clear group label. Users select their criteria and apply the filter using a button. Results update in the main content area. A 'Clear filters' link should always be available when filters are applied.
-    </p>
+      </p>
     </section>
 
     <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
@@ -457,444 +293,58 @@ navigation: [
 
     <section class="govuk-!-margin-top-8" aria-labelledby="example-heading">
       <h2 class="govuk-heading-l" id="example-heading">Example</h2>
-
+      {% set filterId = "example-filter" %}
+      {% set filterExample %}{% include "common/nunjucks/filter.html" %}{% endset %}
       <div class="component-example">
-
-        <div class="filter-example-panel">
-          <div class="ofgem-filter">
-            <div class="ofgem-filter__heading">
-              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filter</h3>
-            </div>
-            <div class="ofgem-filter__selected">
-              <div class="ofgem-filter__selected-top">
-                <p class="ofgem-filter__selected-label">Selected filters</p>
-                <a class="govuk-link ofgem-filter__clear" href="#" id="clear-filters-link">Clear filters</a>
-              </div>
-              <p class="ofgem-filter__no-selection" id="no-filters-text">No filters selected</p>
-              <ul class="ofgem-filter__selected-list" id="selected-filters-list" aria-live="polite"></ul>
-            </div>
-            <div class="ofgem-filter__body">
-              <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-filter-expanded">
-                <div class="govuk-accordion__section govuk-accordion__section--expanded">
-                  <div class="govuk-accordion__section-header">
-                    <h2 class="govuk-accordion__section-heading">
-                      <span class="govuk-accordion__section-button" id="accordion-filter-expanded-heading-1">Text input</span>
-                    </h2>
-                  </div>
-                  <div id="accordion-filter-expanded-content-1" class="govuk-accordion__section-content">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label" for="filter-text-input">Label</label>
-                      <input class="govuk-input govuk-input--width-20" id="filter-text-input" name="filter-text-input" type="text">
-                    </div>
-                  </div>
-                </div>
-                <div class="govuk-accordion__section govuk-accordion__section--expanded">
-                  <div class="govuk-accordion__section-header">
-                    <h2 class="govuk-accordion__section-heading">
-                      <span class="govuk-accordion__section-button" id="accordion-filter-expanded-heading-2">Checkboxes</span>
-                    </h2>
-                  </div>
-                  <div id="accordion-filter-expanded-content-2" class="govuk-accordion__section-content">
-                    <div class="govuk-form-group">
-                      <p class="govuk-body ofgem-filter__checkbox-label">Label</p>
-                      <fieldset class="govuk-fieldset">
-                        <div class="govuk-checkboxes govuk-checkboxes--small">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="filter-cb-a" name="filter-checkboxes" type="checkbox" value="a">
-                            <label class="govuk-label govuk-checkboxes__label" for="filter-cb-a">Option A</label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="filter-cb-b" name="filter-checkboxes" type="checkbox" value="b">
-                            <label class="govuk-label govuk-checkboxes__label" for="filter-cb-b">Option B</label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="filter-cb-c" name="filter-checkboxes" type="checkbox" value="c">
-                            <label class="govuk-label govuk-checkboxes__label" for="filter-cb-c">Option C</label>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ofgem-filter__apply">
-              <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" id="apply-filters-button">Apply filters</button>
-            </div>
-          </div>
-        </div>
-
+        {{ filterExample | safe }}
       </div>
 
-              <!--       
-                    <div class="govuk-tabs govuk-!-margin-top-6" data-module="govuk-tabs">
-                      <h2 class="govuk-tabs__title">Code</h2>
-                      <ul class="govuk-tabs__list">
-                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-                          <a class="govuk-tabs__tab" href="#code-html-tab">HTML</a>
-                        </li>
-                        <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="#code-nunjucks-tab">Nunjucks</a>
-                        </li>
-                      </ul>
-                      <div class="govuk-tabs__panel" id="code-html-tab">
-              <pre class="code-block">&lt;div class="ofgem-filter"&gt;
-                &lt;div class="ofgem-filter__heading"&gt;
-                  &lt;h3 class="govuk-heading-s"&gt;Filter&lt;/h3&gt;
-                &lt;/div&gt;
-                &lt;div class="ofgem-filter__selected"&gt;
-                  &lt;div class="ofgem-filter__selected-top"&gt;
-                    &lt;p class="ofgem-filter__selected-label"&gt;Selected filters&lt;/p&gt;
-                    &lt;a class="govuk-link ofgem-filter__clear" href="#" id="clear-filters-link"&gt;Clear filters&lt;/a&gt;
-                  &lt;/div&gt;
-                  &lt;p class="ofgem-filter__no-selection" id="no-filters-text"&gt;No filters selected&lt;/p&gt;
-                  &lt;ul class="ofgem-filter__selected-list" id="selected-filters-list" aria-live="polite"&gt;&lt;/ul&gt;
-                &lt;/div&gt;
-                &lt;div class="ofgem-filter__body"&gt;
-                  &lt;div class="govuk-accordion" data-module="govuk-accordion" id="accordion-filter"&gt;
-                    &lt;div class="govuk-accordion__section"&gt;
-                      &lt;div class="govuk-accordion__section-header"&gt;
-                        &lt;h2 class="govuk-accordion__section-heading"&gt;
-                          &lt;span class="govuk-accordion__section-button" id="accordion-filter-heading-1"&gt;Text input&lt;/span&gt;
-                        &lt;/h2&gt;
-                      &lt;/div&gt;
-                      &lt;div id="accordion-filter-content-1" class="govuk-accordion__section-content"&gt;
-                        &lt;div class="govuk-form-group"&gt;
-                          &lt;label class="govuk-label" for="filter-text"&gt;Label&lt;/label&gt;
-                          &lt;input class="govuk-input" id="filter-text" name="filter-text" type="text"&gt;
-                        &lt;/div&gt;
-                      &lt;/div&gt;
-                    &lt;/div&gt;
-                    &lt;div class="govuk-accordion__section"&gt;
-                      &lt;div class="govuk-accordion__section-header"&gt;
-                        &lt;h2 class="govuk-accordion__section-heading"&gt;
-                          &lt;span class="govuk-accordion__section-button" id="accordion-filter-heading-2"&gt;Checkboxes&lt;/span&gt;
-                        &lt;/h2&gt;
-                      &lt;/div&gt;
-                      &lt;div id="accordion-filter-content-2" class="govuk-accordion__section-content"&gt;
-                        &lt;div class="govuk-form-group"&gt;
-                          &lt;p class="govuk-body"&gt;Label&lt;/p&gt;
-                          &lt;fieldset class="govuk-fieldset"&gt;
-                            &lt;div class="govuk-checkboxes govuk-checkboxes--small"&gt;
-                              &lt;div class="govuk-checkboxes__item"&gt;
-                                &lt;input class="govuk-checkboxes__input" id="cb-a" name="checkboxes" type="checkbox" value="a"&gt;
-                                &lt;label class="govuk-label govuk-checkboxes__label" for="cb-a"&gt;Option A&lt;/label&gt;
-                              &lt;/div&gt;
-                              &lt;div class="govuk-checkboxes__item"&gt;
-                                &lt;input class="govuk-checkboxes__input" id="cb-b" name="checkboxes" type="checkbox" value="b"&gt;
-                                &lt;label class="govuk-label govuk-checkboxes__label" for="cb-b"&gt;Option B&lt;/label&gt;
-                              &lt;/div&gt;
-                              &lt;div class="govuk-checkboxes__item"&gt;
-                                &lt;input class="govuk-checkboxes__input" id="cb-c" name="checkboxes" type="checkbox" value="c"&gt;
-                                &lt;label class="govuk-label govuk-checkboxes__label" for="cb-c"&gt;Option C&lt;/label&gt;
-                              &lt;/div&gt;
-                            &lt;/div&gt;
-                          &lt;/fieldset&gt;
-                        &lt;/div&gt;
-                      &lt;/div&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;div class="ofgem-filter__apply"&gt;
-                  &lt;button class="govuk-button" data-module="govuk-button" id="apply-filters-button"&gt;Apply filters&lt;/button&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
+      <details class="govuk-details filter-code" id="filter-html">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">HTML</span>
+        </summary>
+        <div class="filter-code__panel">
+          <div class="filter-code__toolbar">
+            <button class="govuk-button govuk-button--secondary" type="button" id="copy-filter-code" hidden>Copy code</button>
+            <p class="govuk-body-s filter-code__status" id="copy-filter-status" role="status"></p>
+          </div>
+          <pre class="govuk-body filter-code__source" tabindex="0" aria-label="Filter HTML code"><code class="language-html" id="filter-html-code">{{ filterExample | trim | forceescape }}</code></pre>
+        </div>
+      </details>
+    </section>
 
-              &lt;script&gt;
-                const textInput = document.getElementById('filter-text-input')
-                const checkboxes = document.querySelectorAll('input[name="filter-checkboxes"]')
-                const applyButton = document.getElementById('apply-filters-button')
-                const selectedList = document.getElementById('selected-filters-list')
-                const noFiltersText = document.getElementById('no-filters-text')
-                const clearFiltersLink = document.getElementById('clear-filters-link')
-                let appliedFilters = []
-
-                function getCurrentFilters () {
-                  const chips = []
-
-                  if (textInput.value.trim()) {
-                    chips.push({ type: 'text', value: textInput.value.trim(), label: 'Text input' })
-                  }
-
-                  checkboxes.forEach((checkbox) =&gt; {
-                    if (checkbox.checked) {
-                      const label = document.querySelector('label[for="' + checkbox.id + '"]').textContent.trim()
-                      chips.push({ type: 'checkbox', value: label, rawValue: checkbox.value, label: 'Checkboxes' })
-                    }
-                  })
-
-                  return chips
-                }
-
-                function createSelectedItem (labelText) {
-                  const item = document.createElement('li')
-                  item.className = 'ofgem-filter__selected-item'
-
-                  const type = document.createElement('p')
-                  type.className = 'ofgem-filter__selected-type'
-                  type.textContent = labelText
-
-                  const pills = document.createElement('div')
-                  pills.className = 'ofgem-filter__selected-pills'
-
-                  item.appendChild(type)
-                  item.appendChild(pills)
-                  return { item, pills }
-                }
-
-                function createPill (chip, onRemove) {
-                  const pill = document.createElement('div')
-                  pill.className = 'ofgem-filter__selected-pill'
-
-                  const value = document.createElement('span')
-                  value.className = 'ofgem-filter__selected-value'
-                  value.textContent = chip.value
-
-                  const remove = document.createElement('button')
-                  remove.type = 'button'
-                  remove.className = 'ofgem-filter__remove'
-                  remove.setAttribute('aria-label', 'Remove ' + chip.value)
-                  remove.textContent = '×'
-                  remove.addEventListener('click', onRemove)
-
-                  pill.appendChild(value)
-                  pill.appendChild(remove)
-                  return pill
-                }
-
-                function renderSelectedFilters () {
-                  selectedList.innerHTML = ''
-
-                  const textChip = appliedFilters.find((chip) =&gt; chip.type === 'text')
-                  if (textChip) {
-                    const textRow = createSelectedItem('Text input')
-                    textRow.pills.appendChild(createPill(textChip, () =&gt; {
-                      textInput.value = ''
-                      appliedFilters = appliedFilters.filter((chip) =&gt; chip.type !== 'text')
-                      renderSelectedFilters()
-                    }))
-                    selectedList.appendChild(textRow.item)
-                  }
-
-                  const checkboxChips = appliedFilters.filter((chip) =&gt; chip.type === 'checkbox')
-                  if (checkboxChips.length) {
-                    const checkboxRow = createSelectedItem('Checkboxes')
-                    checkboxChips.forEach((chip) =&gt; {
-                      checkboxRow.pills.appendChild(createPill(chip, () =&gt; {
-                        const target = document.querySelector('input[name="filter-checkboxes"][value="' + chip.rawValue + '"]')
-                        if (target) target.checked = false
-                        appliedFilters = appliedFilters.filter((selected) =&gt; !(selected.type === 'checkbox' &amp;&amp; selected.rawValue === chip.rawValue))
-                        renderSelectedFilters()
-                      }))
-                    })
-                    selectedList.appendChild(checkboxRow.item)
-                  }
-
-                  const hasSelections = appliedFilters.length &gt; 0
-                  noFiltersText.style.display = hasSelections ? 'none' : 'block'
-                  clearFiltersLink.classList.toggle('is-visible', hasSelections)
-                }
-
-                applyButton.addEventListener('click', () =&gt; {
-                  appliedFilters = getCurrentFilters()
-                  renderSelectedFilters()
-                })
-
-                clearFiltersLink.addEventListener('click', (event) =&gt; {
-                  event.preventDefault()
-                  textInput.value = ''
-                  checkboxes.forEach((checkbox) =&gt; { checkbox.checked = false })
-                  appliedFilters = []
-                  renderSelectedFilters()
-                })
-
-                renderSelectedFilters()
-              &lt;/script&gt;</pre>
-                      </div>
-                      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="code-nunjucks-tab">
-              <pre class="code-block">{% raw %}{% from "ofgem/filter/macro.njk" import ofgemFilter %}
-
-              {{ ofgemFilter({
-                sections: [
-                  {
-                    id: "text-input",
-                    heading: "Text input",
-                    type: "text",
-                    label: "Search"
-                  },
-                  {
-                    id: "checkboxes",
-                    heading: "Checkboxes",
-                    type: "checkboxes",
-                    items: [
-                      { value: "a", text: "Option A" },
-                      { value: "b", text: "Option B" },
-                      { value: "c", text: "Option C" }
-                    ]
-                  }
-                ],
-                applyButton: { text: "Apply filters" }
-              }) }}{% endraw %}</pre>
-                      </div>
-                    </div>
-                    -->
-
-    <section class="govuk-!-margin-top-8" aria-labelledby="accessibility-heading">
-      <h2 class="govuk-heading-l" id="accessibility-heading">Research on this component</h2>
+    <section class="govuk-!-margin-top-8" aria-labelledby="research-heading">
+      <h2 class="govuk-heading-l" id="research-heading">Research on this component</h2>
       <p class="govuk-body">
         Usability testing has been conducted on this component, and the results were positive, with no issues identified during testing.
       </p>
-      <p class="govuk-body">
-        However, accessibility testing has not yet been carried out.
-      </p>
+      <p class="govuk-body">However, accessibility testing has not yet been carried out.</p>
     </section>
 
-      <script>
-        (function () {
-          const textInput = document.getElementById('filter-text-input')
-          const checkboxes = document.querySelectorAll('input[name="filter-checkboxes"]')
-          const applyButton = document.getElementById('apply-filters-button')
-          const selectedList = document.getElementById('selected-filters-list')
-          const noFiltersText = document.getElementById('no-filters-text')
-          const clearFiltersLink = document.getElementById('clear-filters-link')
-          let appliedFilters = []
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js" defer></script>
+    <script>
+      (function () {
+        const code = document.getElementById('filter-html-code')
+        const copyButton = document.getElementById('copy-filter-code')
+        const status = document.getElementById('copy-filter-status')
+        copyButton.hidden = false
 
-          function getCurrentFilters () {
-            const chips = []
-
-            if (textInput.value.trim()) {
-              chips.push({ type: 'text', value: textInput.value.trim(), label: 'Text input' })
-            }
-
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                const label = document.querySelector('label[for="' + checkbox.id + '"]').textContent.trim()
-                chips.push({ type: 'checkbox', value: label, rawValue: checkbox.value, label: 'Checkboxes' })
-              }
-            })
-
-            return chips
+        copyButton.addEventListener('click', async function () {
+          status.textContent = ''
+          try {
+            await navigator.clipboard.writeText(code.textContent)
+            status.textContent = 'Code copied'
+          } catch (error) {
+            const selection = document.getSelection()
+            const range = document.createRange()
+            range.selectNodeContents(code)
+            selection.removeAllRanges()
+            selection.addRange(range)
+            status.textContent = 'Could not copy automatically. The code is selected for you to copy.'
           }
-
-          function createSelectedItem (labelText) {
-            const item = document.createElement('li')
-            item.className = 'ofgem-filter__selected-item'
-
-            const type = document.createElement('p')
-            type.className = 'ofgem-filter__selected-type'
-            type.textContent = labelText
-
-            const pills = document.createElement('div')
-            pills.className = 'ofgem-filter__selected-pills'
-
-            item.appendChild(type)
-            item.appendChild(pills)
-            return { item: item, pills: pills }
-          }
-
-          function createPill (chip, onRemove) {
-            const pill = document.createElement('div')
-            pill.className = 'ofgem-filter__selected-pill'
-
-            const value = document.createElement('span')
-            value.className = 'ofgem-filter__selected-value'
-            value.textContent = chip.value
-
-            const remove = document.createElement('button')
-            remove.type = 'button'
-            remove.className = 'ofgem-filter__remove'
-            remove.setAttribute('aria-label', 'Remove ' + chip.value)
-            remove.textContent = '×'
-            remove.addEventListener('click', onRemove)
-
-            pill.appendChild(value)
-            pill.appendChild(remove)
-            return pill
-          }
-
-          function renderSelectedFilters () {
-            selectedList.innerHTML = ''
-
-            const textChip = appliedFilters.find(function (chip) {
-              return chip.type === 'text'
-            })
-            if (textChip) {
-              const textRow = createSelectedItem('Text input')
-              textRow.pills.appendChild(createPill(textChip, function () {
-                textInput.value = ''
-                appliedFilters = appliedFilters.filter(function (chip) {
-                  return chip.type !== 'text'
-                })
-                renderSelectedFilters()
-              }))
-              selectedList.appendChild(textRow.item)
-            }
-
-            const checkboxChips = appliedFilters.filter(function (chip) {
-              return chip.type === 'checkbox'
-            })
-            if (checkboxChips.length) {
-              const checkboxRow = createSelectedItem('Checkboxes')
-              checkboxChips.forEach(function (chip) {
-                checkboxRow.pills.appendChild(createPill(chip, function () {
-                  const target = document.querySelector('input[name="filter-checkboxes"][value="' + chip.rawValue + '"]')
-                  if (target) target.checked = false
-                  appliedFilters = appliedFilters.filter(function (selected) {
-                    return !(selected.type === 'checkbox' && selected.rawValue === chip.rawValue)
-                  })
-                  renderSelectedFilters()
-                }))
-              })
-              selectedList.appendChild(checkboxRow.item)
-            }
-
-            const hasSelections = appliedFilters.length > 0
-            noFiltersText.style.display = hasSelections ? 'none' : 'block'
-            clearFiltersLink.classList.toggle('is-visible', hasSelections)
-          }
-
-          applyButton.addEventListener('click', function () {
-            appliedFilters = getCurrentFilters()
-            renderSelectedFilters()
-          })
-
-          clearFiltersLink.addEventListener('click', function (event) {
-            event.preventDefault()
-            textInput.value = ''
-            checkboxes.forEach(function (checkbox) {
-              checkbox.checked = false
-            })
-            appliedFilters = []
-            renderSelectedFilters()
-          })
-
-          renderSelectedFilters()
-        })()
-      </script>
-
-    </section>
-
+        })
+      })()
+    </script>
   </div>
-
 </div>
-
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

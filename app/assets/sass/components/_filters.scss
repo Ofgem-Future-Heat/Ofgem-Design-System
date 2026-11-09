@@ -225,3 +225,36 @@ filters
     // max-height: 400px;
   }
 }
+
+.ofgem-filter {
+  box-sizing: border-box;
+  width: 300px;
+  max-width: 100%;
+  border: 1px solid #b1b4b6;
+  background: #fff;
+  color: #0b0c0c;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+.ofgem-filter [hidden] { display: none !important; }
+.ofgem-filter__heading { padding: 12px 15px; background: #d9d9d9; border-bottom: 1px solid #b1b4b6; }
+.ofgem-filter__selected { padding: 12px 15px; background: #f3f2f1; border-bottom: 1px solid #b1b4b6; }
+.ofgem-filter__selected-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.ofgem-filter__selected-label { margin: 0 0 10px; font-size: 1.1875rem; font-weight: 700; line-height: 1.3158; }
+.ofgem-filter__no-selection { margin: 0; font-size: .875rem; color: #505a5f; }
+.ofgem-filter__selected-list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ofgem-filter__selected-item { max-width: 100%; }
+.ofgem-filter__selected-type { margin: 0 0 4px; font-size: 1rem; line-height: 1.25; }
+.ofgem-filter__selected-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.ofgem-filter__selected-pill { display: inline-flex; align-items: center; gap: 8px; box-sizing: border-box; max-width: 100%; padding: 5px 8px; border: 1px solid #b1b4b6; background: #fff; }
+.ofgem-filter__selected-value { min-width: 0; overflow-wrap: anywhere; font-size: 1rem; line-height: 1.25; }
+.ofgem-filter__remove { flex-shrink: 0; padding: 2px; border: 0; background: transparent; color: #0b0c0c; font-size: 1rem; line-height: 1; cursor: pointer; }
+.ofgem-filter__clear { padding: 0; margin: 0 0 10px auto; border: 0; background: transparent; font: inherit; font-size: .875rem; cursor: pointer; }
+.ofgem-filter__remove:focus { outline: 3px solid #ffdd00; background: #ffdd00; box-shadow: 0 2px #0b0c0c; }
+.ofgem-filter__body .govuk-accordion { border: 0; margin: 0; padding-top: 10px; }
+.ofgem-filter__body .govuk-accordion__section-header { padding: 10px 15px; }
+.ofgem-filter__body .govuk-accordion__section-content { padding: 2px 15px 12px; }
+.ofgem-filter__body .govuk-accordion__show-all { margin-left: 15px; margin-bottom: 8px; }
+.ofgem-filter__body .govuk-accordion__controls { border-bottom: 0; padding-bottom: 0; }
+.ofgem-filter__body .govuk-accordion__section-button { font-size: 1rem; line-height: 1.25; }
+.ofgem-filter__apply { padding: 15px; border-top: 1px solid #b1b4b6; }
