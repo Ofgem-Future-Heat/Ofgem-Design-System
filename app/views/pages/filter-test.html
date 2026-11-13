@@ -2,11 +2,28 @@
 
 {% set pageName = "Filter test" %}
 
+{% block serviceNav %}
+<style>
+  .govuk-service-navigation {
+    background-color: #f4f8fb !important;
+    border-bottom: 1px solid #8eb8dc;
+  }
+</style>
+{{ govukServiceNavigation({
+  navigation: [
+    { href: "/components", text: "Components", active: true },
+    { href: "/patterns", text: "Patterns" },
+    { href: "/content-style-guide", text: "Content style guide" }
+  ]
+}) }}
+{% endblock %}
+
 {% block content %}
 
-<h1 class="govuk-heading-xl">Test</h1>
 
-<form class="ofgem-filter" data-ofgem-filter style="margin-bottom: 5rem;">
+<h1 class="govuk-heading-xl govuk-!-margin-top-6 govuk-!-margin-bottom-6">Test</h1>
+
+<form class="ofgem-filter govuk-!-margin-bottom-9" data-ofgem-filter>
   <div class="ofgem-filter__heading">
     <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filter</h3>
   </div>
@@ -67,6 +84,8 @@
     <button class="govuk-button govuk-!-margin-bottom-0" type="submit" data-module="govuk-button">Apply filters</button>
   </div>
 </form>
+
+
 
 
 {% endblock %}
